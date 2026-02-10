@@ -1,0 +1,64 @@
+@import 'tailwindcss';
+
+@theme apply {
+	--font-poppins: var(--font-poppins-local);
+}
+
+@layer base {
+	html {
+		@apply font-poppins scroll-smooth antialiased;
+	}
+}
+
+@theme {
+	/* Light Theme Colors (Default) */
+	--color-background: #ffffff;
+	--color-surface: #f9fafb;
+	--color-border: #e5e7eb;
+	--color-text: #475569;
+	--color-primary: #9810fa;
+	--color-secondary: #e60076;
+
+	/* Additional Light Theme Colors */
+	--color-text-bright: #0f172b;
+	--color-text-muted: #94a3b8;
+	--color-surface-hover: #f3f4f6;
+
+	/* Status Colors */
+	--color-success: #16a34a;
+	--color-warning: #d97706;
+	--color-error: #dc2626;
+	--color-info: #2563eb;
+}
+
+.dark {
+	--color-background: #020618;
+	--color-surface: #0f172b;
+	--color-border: #1d293d;
+	--color-text: #90a1b9;
+	--color-primary: #9810fa;
+	--color-secondary: #e60076;
+	--color-text-bright: #ffffff;
+	--color-text-muted: #64748b;
+	--color-surface-hover: #1a2537;
+	--color-success: #22c55e;
+	--color-warning: #f59e0b;
+	--color-error: #ef4444;
+	--color-info: #3b82f6;
+}
+
+* {
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+	font-display: swap;
+}
+
+button {
+	cursor: pointer;
+	outline: none;
+}
+
+::selection {
+	background-color: #d10000;
+	color: #ffffff;
+}
