@@ -14,7 +14,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang='en'>
-			<body className={`${Poppins.variable} antialiased`}>{children}</body>
+			<body className={`${Poppins.variable} antialiased`}>
+				<div className='px-5 py-10'>{children} </div>
+			</body>
 		</html>
 	);
 }
