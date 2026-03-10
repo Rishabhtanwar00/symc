@@ -1,64 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 @import 'tailwindcss';
 
-@theme apply {
-	--font-poppins: var(--font-poppins-local);
+/* ─── Static Brand Tokens (never change between themes) ──────────────────── */
+@theme {
+	--color-gold: #c9a84c;
+	--color-gold-light: #f0d080;
+	--color-gold-dark: #a8813a;
+
+	--color-gold-04: rgba(201, 168, 76, 0.04);
+	--color-gold-06: rgba(201, 168, 76, 0.06);
+	--color-gold-07: rgba(201, 168, 76, 0.07);
+	--color-gold-08: rgba(201, 168, 76, 0.08);
+	--color-gold-10: rgba(201, 168, 76, 0.1);
+	--color-gold-12: rgba(201, 168, 76, 0.12);
+	--color-gold-25: rgba(201, 168, 76, 0.25);
+	--color-gold-30: rgba(201, 168, 76, 0.3);
+	--color-gold-40: rgba(201, 168, 76, 0.4);
+
+	--gradient-gold: linear-gradient(
+		135deg,
+		#c9a84c 0%,
+		#f0d080 50%,
+		#c9a84c 100%
+	);
+	--gradient-gold-btn: linear-gradient(135deg, #c9a84c, #a8813a);
+
+	--font-cinzel: 'Cinzel', serif;
+	--font-cinzel-deco: 'Cinzel Decorative', 'Cinzel', serif;
+	--font-cormorant: 'Cormorant Garamond', serif;
 }
 
+/* ─── Dark Theme (default) ────────────────────────────────────────────────── */
+:root,
+[data-theme='dark'] {
+	--color-bg-deepest: #030410;
+	--color-bg-deep: #050714;
+	--color-bg-dark: #07091a;
+	--color-bg-mid: #0a0d2c;
+	--color-bg-surface: #0d0a1a;
+
+	--color-text-primary: #ffffff;
+	--color-text-muted: rgba(255, 255, 255, 0.55);
+	--color-text-subtle: rgba(255, 255, 255, 0.35);
+	--color-text-faint: rgba(255, 255, 255, 0.2);
+
+	--gradient-hero: linear-gradient(
+		160deg,
+		#050714 0%,
+		#0a0d2c 55%,
+		#0d0a1a 100%
+	);
+	--gradient-section-a: linear-gradient(180deg, #0a0d2c 0%, #07091a 100%);
+	--gradient-section-b: linear-gradient(180deg, #07091a 0%, #0a0d2c 100%);
+
+	--nav-bg-scrolled: rgba(5, 7, 20, 0.88);
+	--nav-mobile-bg: rgba(5, 7, 20, 0.97);
+}
+
+/* ─── Light Theme ─────────────────────────────────────────────────────────── */
+[data-theme='light'] {
+	--color-bg-deepest: #f5f0e8;
+	--color-bg-deep: #faf7f2;
+	--color-bg-dark: #f0ebe0;
+	--color-bg-mid: #e8e0d0;
+	--color-bg-surface: #ede6d8;
+
+	--color-text-primary: #1a1408;
+	--color-text-muted: rgba(30, 20, 8, 0.65);
+	--color-text-subtle: rgba(30, 20, 8, 0.45);
+	--color-text-faint: rgba(30, 20, 8, 0.3);
+
+	--gradient-hero: linear-gradient(
+		160deg,
+		#faf7f2 0%,
+		#f0ebe0 55%,
+		#ede6d8 100%
+	);
+	--gradient-section-a: linear-gradient(180deg, #e8e0d0 0%, #f0ebe0 100%);
+	--gradient-section-b: linear-gradient(180deg, #f0ebe0 0%, #e8e0d0 100%);
+
+	--nav-bg-scrolled: rgba(250, 247, 242, 0.92);
+	--nav-mobile-bg: rgba(250, 247, 242, 0.98);
+}
+
+/* ─── Base Styles ─────────────────────────────────────────────────────────── */
 @layer base {
+	*,
+	*::before,
+	*::after {
+		box-sizing: border-box;
+		margin: 0;
+		padding: 0;
+	}
+
 	html {
-		@apply font-poppins scroll-smooth antialiased;
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: var(--font-cormorant);
+		background-color: var(--color-bg-deep);
+		color: var(--color-text-primary);
+		-webkit-font-smoothing: antialiased;
+		transition:
+			background-color 0.4s ease,
+			color 0.4s ease;
 	}
 }
 
-@theme {
-	/* Light Theme Colors (Default) */
-	--color-background: #ffffff;
-	--color-surface: #f9fafb;
-	--color-border: #e5e7eb;
-	--color-text: #475569;
-	--color-primary: #9810fa;
-	--color-secondary: #e60076;
-
-	/* Additional Light Theme Colors */
-	--color-text-bright: #0f172b;
-	--color-text-muted: #94a3b8;
-	--color-surface-hover: #f3f4f6;
-
-	/* Status Colors */
-	--color-success: #16a34a;
-	--color-warning: #d97706;
-	--color-error: #dc2626;
-	--color-info: #2563eb;
+/* ─── Smooth theme transitions ────────────────────────────────────────────── */
+@layer utilities {
+	*:not(canvas):not(svg):not(svg *) {
+		transition-property: background-color, border-color, color;
+		transition-duration: 0.4s;
+		transition-timing-function: ease;
+	}
 }
 
-.dark {
-	--color-background: #020618;
-	--color-surface: #0f172b;
-	--color-border: #1d293d;
-	--color-text: #90a1b9;
-	--color-primary: #9810fa;
-	--color-secondary: #e60076;
-	--color-text-bright: #ffffff;
-	--color-text-muted: #64748b;
-	--color-surface-hover: #1a2537;
-	--color-success: #22c55e;
-	--color-warning: #f59e0b;
-	--color-error: #ef4444;
-	--color-info: #3b82f6;
-}
+/* ─── Animations ──────────────────────────────────────────────────────────── */
+@layer utilities {
+	@keyframes spin-slow {
+		to {
+			transform: translate(-50%, -50%) rotate(360deg);
+		}
+	}
 
-* {
-	box-sizing: border-box;
-	font-family: 'Poppins', sans-serif;
-	font-display: swap;
-}
+	@keyframes float {
+		0%,
+		100% {
+			transform: translateY(0);
+		}
+		50% {
+			transform: translateY(-8px);
+		}
+	}
 
-button {
-	cursor: pointer;
-	outline: none;
-}
+	@keyframes fade-up {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
 
-::selection {
-	background-color: #d10000;
-	color: #ffffff;
+	@keyframes toggle-spin {
+		from {
+			transform: rotate(0deg) scale(1);
+		}
+		50% {
+			transform: rotate(180deg) scale(1.2);
+		}
+		to {
+			transform: rotate(360deg) scale(1);
+		}
+	}
+
+	.animate-spin-slow {
+		animation: spin-slow 80s linear infinite;
+	}
+	.animate-float {
+		animation: float 3s ease-in-out infinite;
+	}
+	.animate-fade-up {
+		animation: fade-up 0.6s ease both;
+	}
+	.animate-toggle-spin {
+		animation: toggle-spin 0.5s ease;
+	}
 }
