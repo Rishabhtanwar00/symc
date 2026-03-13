@@ -1,12 +1,92 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap');
 @import 'tailwindcss';
 
-/* ─── Static Brand Tokens (never change between themes) ──────────────────── */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   HOW TAILWIND v4 THEME WORKS:
+   • @theme { --color-X: value } → generates bg-X, text-X, border-X utilities
+   • The variable NAME after the namespace prefix becomes the class suffix
+     e.g. --color-gold       → text-gold, bg-gold, border-gold
+     e.g. --color-bg-deep    → text-bg-deep, bg-bg-deep  (double prefix = ugly)
+   • Theme-switching values MUST live in :root / [data-theme] as plain CSS vars
+     then be referenced inside @theme via var() so Tailwind generates utilities
+     that always read the current theme value at runtime.
+   • Font tokens: --font-X → font-X utility class
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+/* ─── 1. Runtime theme variables (plain CSS vars, NOT @theme) ─────────────
+   These change per theme. Tailwind doesn't need to know their values at
+   build time — components reference them via the @theme aliases below.
+──────────────────────────────────────────────────────────────────────────── */
+:root,
+[data-theme='dark'] {
+	/* Backgrounds */
+	--rt-bg-deepest: #030410;
+	--rt-bg-deep: #050714;
+	--rt-bg-dark: #07091a;
+	--rt-bg-mid: #0a0d2c;
+	--rt-bg-surface: #0d0a1a;
+
+	/* Text */
+	--rt-text-primary: #ffffff;
+	--rt-text-muted: rgba(255, 255, 255, 0.55);
+	--rt-text-subtle: rgba(255, 255, 255, 0.35);
+	--rt-text-faint: rgba(255, 255, 255, 0.2);
+
+	/* Gradients */
+	--rt-gradient-hero: linear-gradient(
+		160deg,
+		#050714 0%,
+		#0a0d2c 55%,
+		#0d0a1a 100%
+	);
+	--rt-gradient-section-a: linear-gradient(180deg, #0a0d2c 0%, #07091a 100%);
+	--rt-gradient-section-b: linear-gradient(180deg, #07091a 0%, #0a0d2c 100%);
+
+	/* Nav */
+	--rt-nav-scrolled: rgba(5, 7, 20, 0.88);
+	--rt-nav-mobile: rgba(5, 7, 20, 0.97);
+}
+
+[data-theme='light'] {
+	/* Backgrounds */
+	--rt-bg-deepest: #f5f0e8;
+	--rt-bg-deep: #faf7f2;
+	--rt-bg-dark: #f0ebe0;
+	--rt-bg-mid: #e8e0d0;
+	--rt-bg-surface: #ede6d8;
+
+	/* Text */
+	--rt-text-primary: #1a1408;
+	--rt-text-muted: rgba(30, 20, 8, 0.95);
+	--rt-text-subtle: rgba(30, 20, 8, 0.75);
+	--rt-text-faint: rgba(30, 20, 8, 0.6);
+
+	/* Gradients */
+	--rt-gradient-hero: linear-gradient(
+		160deg,
+		#faf7f2 0%,
+		#f0ebe0 55%,
+		#ede6d8 100%
+	);
+	--rt-gradient-section-a: linear-gradient(180deg, #e8e0d0 0%, #f0ebe0 100%);
+	--rt-gradient-section-b: linear-gradient(180deg, #f0ebe0 0%, #e8e0d0 100%);
+
+	/* Nav */
+	--rt-nav-scrolled: rgba(250, 247, 242, 0.92);
+	--rt-nav-mobile: rgba(250, 247, 242, 0.98);
+}
+
+/* ─── 2. @theme — Tailwind utility generator ──────────────────────────────
+   Static brand tokens + aliases to runtime vars above.
+   Naming: --color-X → text-X / bg-X / border-X
+           --font-X  → font-X
+──────────────────────────────────────────────────────────────────────────── */
 @theme {
+	/* ── Gold (static, never changes) ── */
 	--color-gold: #c9a84c;
 	--color-gold-light: #f0d080;
 	--color-gold-dark: #a8813a;
 
+	/* Gold opacity scale → e.g. bg-gold-04, border-gold-12 */
 	--color-gold-04: rgba(201, 168, 76, 0.04);
 	--color-gold-06: rgba(201, 168, 76, 0.06);
 	--color-gold-07: rgba(201, 168, 76, 0.07);
@@ -16,7 +96,28 @@
 	--color-gold-25: rgba(201, 168, 76, 0.25);
 	--color-gold-30: rgba(201, 168, 76, 0.3);
 	--color-gold-40: rgba(201, 168, 76, 0.4);
+	--color-gold-60: rgba(201, 168, 76, 0.6);
+	--color-gold-80: rgba(201, 168, 76, 0.8);
 
+	/* ── Theme-aware bg aliases → bg-surface-deep, bg-surface-dark … ── */
+	--color-surface-deepest: var(--rt-bg-deepest);
+	--color-surface-deep: var(--rt-bg-deep);
+	--color-surface-dark: var(--rt-bg-dark);
+	--color-surface-mid: var(--rt-bg-mid);
+	--color-surface: var(--rt-bg-surface);
+
+	/* ── Theme-aware text aliases → text-primary, text-muted, text-subtle … ── */
+	--color-primary: var(--rt-text-primary);
+	--color-muted: var(--rt-text-muted);
+	--color-subtle: var(--rt-text-subtle);
+	--color-faint: var(--rt-text-faint);
+
+	/* ── Fonts (values injected by next/font via CSS vars in layout.tsx) ── */
+	--font-cinzel: var(--font-cinzel-var), serif;
+	--font-cinzel-deco: var(--font-cinzel-deco-var), serif;
+	--font-cormorant: var(--font-cormorant-var), serif;
+
+	/* ── Static gradients ── */
 	--gradient-gold: linear-gradient(
 		135deg,
 		#c9a84c 0%,
@@ -24,66 +125,9 @@
 		#c9a84c 100%
 	);
 	--gradient-gold-btn: linear-gradient(135deg, #c9a84c, #a8813a);
-
-	--font-cinzel: 'Cinzel', serif;
-	--font-cinzel-deco: 'Cinzel Decorative', 'Cinzel', serif;
-	--font-cormorant: 'Cormorant Garamond', serif;
 }
 
-/* ─── Dark Theme (default) ────────────────────────────────────────────────── */
-:root,
-[data-theme='dark'] {
-	--color-bg-deepest: #030410;
-	--color-bg-deep: #050714;
-	--color-bg-dark: #07091a;
-	--color-bg-mid: #0a0d2c;
-	--color-bg-surface: #0d0a1a;
-
-	--color-text-primary: #ffffff;
-	--color-text-muted: rgba(255, 255, 255, 0.55);
-	--color-text-subtle: rgba(255, 255, 255, 0.35);
-	--color-text-faint: rgba(255, 255, 255, 0.2);
-
-	--gradient-hero: linear-gradient(
-		160deg,
-		#050714 0%,
-		#0a0d2c 55%,
-		#0d0a1a 100%
-	);
-	--gradient-section-a: linear-gradient(180deg, #0a0d2c 0%, #07091a 100%);
-	--gradient-section-b: linear-gradient(180deg, #07091a 0%, #0a0d2c 100%);
-
-	--nav-bg-scrolled: rgba(5, 7, 20, 0.88);
-	--nav-mobile-bg: rgba(5, 7, 20, 0.97);
-}
-
-/* ─── Light Theme ─────────────────────────────────────────────────────────── */
-[data-theme='light'] {
-	--color-bg-deepest: #f5f0e8;
-	--color-bg-deep: #faf7f2;
-	--color-bg-dark: #f0ebe0;
-	--color-bg-mid: #e8e0d0;
-	--color-bg-surface: #ede6d8;
-
-	--color-text-primary: #1a1408;
-	--color-text-muted: rgba(30, 20, 8, 0.65);
-	--color-text-subtle: rgba(30, 20, 8, 0.45);
-	--color-text-faint: rgba(30, 20, 8, 0.3);
-
-	--gradient-hero: linear-gradient(
-		160deg,
-		#faf7f2 0%,
-		#f0ebe0 55%,
-		#ede6d8 100%
-	);
-	--gradient-section-a: linear-gradient(180deg, #e8e0d0 0%, #f0ebe0 100%);
-	--gradient-section-b: linear-gradient(180deg, #f0ebe0 0%, #e8e0d0 100%);
-
-	--nav-bg-scrolled: rgba(250, 247, 242, 0.92);
-	--nav-mobile-bg: rgba(250, 247, 242, 0.98);
-}
-
-/* ─── Base Styles ─────────────────────────────────────────────────────────── */
+/* ─── 3. Base styles ──────────────────────────────────────────────────────── */
 @layer base {
 	*,
 	*::before,
@@ -99,16 +143,38 @@
 
 	body {
 		font-family: var(--font-cormorant);
-		background-color: var(--color-bg-deep);
-		color: var(--color-text-primary);
+		background-color: var(--rt-bg-deep);
+		color: var(--rt-text-primary);
 		-webkit-font-smoothing: antialiased;
+		transition:
+			background-color 0.4s ease,
+			color 0.4s ease;
+	}
+
+	::selection {
+		color: var(--rt-text-primary);
+		background-color: var(--color-gold);
+		transition:
+			background-color color 0.4s ease,
+			color 0.4s ease;
+	}
+	::-webkit-scrollbar {
+		width: 5px;
+	}
+	::-webkit-scrollbar-thumb {
+		background-color: var(--color-gold);
+		border-radius: 6px;
+	}
+	::-webkit-scrollbar-track {
+		background-color: var(--rt-bg-deep);
+		border-radius: 6px;
 		transition:
 			background-color 0.4s ease,
 			color 0.4s ease;
 	}
 }
 
-/* ─── Smooth theme transitions ────────────────────────────────────────────── */
+/* ─── 4. Smooth theme transitions ─────────────────────────────────────────── */
 @layer utilities {
 	*:not(canvas):not(svg):not(svg *) {
 		transition-property: background-color, border-color, color;
@@ -117,14 +183,13 @@
 	}
 }
 
-/* ─── Animations ──────────────────────────────────────────────────────────── */
+/* ─── 5. Animations ───────────────────────────────────────────────────────── */
 @layer utilities {
 	@keyframes spin-slow {
 		to {
 			transform: translate(-50%, -50%) rotate(360deg);
 		}
 	}
-
 	@keyframes float {
 		0%,
 		100% {
@@ -134,7 +199,6 @@
 			transform: translateY(-8px);
 		}
 	}
-
 	@keyframes fade-up {
 		from {
 			opacity: 0;
@@ -145,7 +209,6 @@
 			transform: translateY(0);
 		}
 	}
-
 	@keyframes toggle-spin {
 		from {
 			transform: rotate(0deg) scale(1);

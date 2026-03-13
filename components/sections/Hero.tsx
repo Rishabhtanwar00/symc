@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import SacredCircle from '../common/SacredCircle';
+import Link from 'next/link';
 
 export default function Hero() {
 	const [visible, setVisible] = useState(false);
@@ -14,7 +15,7 @@ export default function Hero() {
 	return (
 		<section
 			className='relative min-h-screen flex items-center justify-center overflow-hidden pt-[88px]'
-			style={{ background: 'var(--gradient-hero)' }}
+			// style={{ background: 'var(--rt-gradient-hero)' }}
 		>
 			{/* Radial glow */}
 			<div
@@ -45,30 +46,20 @@ export default function Hero() {
 					transform: visible ? 'translateY(0)' : 'translateY(30px)',
 				}}
 			>
-				{/* Eyebrow label */}
+				{/* Eyebrow */}
 				<div
 					className='mb-8 inline-flex items-center gap-3 transition-opacity duration-[1800ms] delay-300'
 					style={{ opacity: visible ? 1 : 0 }}
 				>
-					<span
-						className='text-[10px] tracking-[0.35em]'
-						style={{
-							color: 'var(--color-gold)',
-							fontFamily: 'var(--font-cinzel)',
-						}}
-					>
+					<span className='text-[10px] tracking-[0.35em] font-cinzel text-gold'>
 						✦ SHREE YOGMAYA MEDITATION CENTRE ✦
 					</span>
 				</div>
 
 				{/* Heading */}
 				<h1
-					className='mb-6 leading-[1.1] tracking-[-0.01em]'
-					style={{
-						fontFamily: 'var(--font-cinzel-deco)',
-						fontSize: 'clamp(2.8rem, 7vw, 5.5rem)',
-						color: 'var(--color-text-primary)',
-					}}
+					className='mb-6 leading-[1.1] tracking-[-0.01em] font-cinzel-deco text-primary'
+					style={{ fontSize: 'clamp(2.8rem, 7vw, 5.5rem)' }}
 				>
 					Align With the{' '}
 					<span
@@ -86,11 +77,9 @@ export default function Hero() {
 
 				{/* Tagline */}
 				<p
-					className='mb-12 mx-auto max-w-xl italic leading-[1.8] transition-opacity duration-[1800ms] delay-[600ms]'
+					className='mb-12 mx-auto max-w-xl italic leading-[1.8] font-cormorant text-muted transition-opacity duration-[1800ms] delay-[600ms]'
 					style={{
-						fontFamily: 'var(--font-cormorant)',
 						fontSize: 'clamp(1rem, 2.2vw, 1.25rem)',
-						color: 'var(--color-text-muted)',
 						opacity: visible ? 1 : 0,
 					}}
 				>
@@ -103,41 +92,27 @@ export default function Hero() {
 					className='flex flex-col sm:flex-row gap-4 justify-center transition-opacity duration-[1800ms] delay-[900ms]'
 					style={{ opacity: visible ? 1 : 0 }}
 				>
-					<a
-						href='#'
-						className='px-10 py-4 text-[11px] font-bold tracking-[0.2em] transition-opacity duration-300 hover:opacity-85'
-						style={{
-							background: 'var(--gradient-gold-btn)',
-							color: 'var(--color-bg-deep)',
-							fontFamily: 'var(--font-cinzel)',
-							letterSpacing: '0.2em',
-						}}
+					<Link
+						href='/'
+						className='px-10 py-4 text-[11px] font-bold tracking-[0.2em] font-cinzel text-surface-deep hover:opacity-85 transition-opacity duration-300'
+						style={{ background: 'var(--gradient-gold-btn)' }}
 					>
 						BEGIN YOUR JOURNEY
-					</a>
-					<a
-						href='#'
-						className='px-10 py-4 text-[11px] tracking-[0.2em] border transition-all duration-300
-                       hover:border-[var(--color-gold)] hover:text-[var(--color-gold)]'
-						style={{
-							borderColor: 'var(--color-gold-40)',
-							color: 'var(--color-gold-40)',
-							fontFamily: 'var(--font-cinzel)',
-						}}
+					</Link>
+					<Link
+						href='/'
+						className='px-10 py-4 text-[11px] font-bold tracking-[0.2em] font-cinzel
+                       text-gold border border-gold
+                       hover:bg-gold hover:text-surface-deep 
+                       transition-all duration-300'
 					>
 						EXPLORE SERVICES
-					</a>
+					</Link>
 				</div>
 
 				{/* Scroll indicator */}
-				<div className='mt-20 flex flex-col items-center gap-2 opacity-40 animate-float'>
-					<span
-						className='text-[10px] tracking-[0.25em]'
-						style={{
-							color: 'var(--color-gold)',
-							fontFamily: 'var(--font-cinzel)',
-						}}
-					>
+				<div className='mt-20 flex flex-col items-center gap-2 opacity-60 animate-float'>
+					<span className='text-[10px] tracking-[0.25em] font-cinzel text-gold'>
 						SCROLL
 					</span>
 					<div
