@@ -1,25 +1,11 @@
+import Link from 'next/link';
 import SacredCircle from '../common/SacredCircle';
+import { STATS } from '@/lib/Data';
 
-const STATS = [
-	{ num: '12+', label: 'Years of Practice' },
-	{ num: '3000+', label: 'Souls Guided' },
-	{ num: '200+', label: 'Meditation Sessions' },
-	{ num: '40+', label: 'Astrology Reports' },
-];
-
-export default function About() {
+const About = () => {
 	return (
 		<section className='relative py-32 px-6 overflow-hidden bg-deep'>
-			<SacredCircle
-				className='absolute opacity-20 pointer-events-none'
-				style={{
-					width: '500px',
-					height: '500px',
-					right: '-120px',
-					top: '50%',
-					transform: 'translateY(-50%)',
-				}}
-			/>
+			<SacredCircle className='absolute opacity-20 w-[500px] h-[500px] -right-[120px] top-1/2 -translate-y-1/2 pointer-events-none' />
 
 			<div className='max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center'>
 				<div>
@@ -27,10 +13,7 @@ export default function About() {
 						✦ OUR STORY ✦
 					</p>
 
-					<h2
-						className='mb-8 leading-[1.2] font-cinzel-deco text-primary'
-						style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.8rem)' }}
-					>
+					<h2 className='mb-8 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,_3.5vw,_2.8rem)]'>
 						Where Stars Meet <br />
 						<span className='text-gold'>Stillness</span>
 					</h2>
@@ -48,22 +31,19 @@ export default function About() {
 						seeking to becoming.
 					</p>
 
-					<a
+					<Link
 						href='#'
 						className='mt-10 inline-flex items-center gap-3 text-[11px] tracking-[0.2em] font-cinzel text-gold hover:opacity-80 transition-opacity duration-300'
 					>
 						DISCOVER OUR PHILOSOPHY <span>→</span>
-					</a>
+					</Link>
 				</div>
 
 				<div className='grid grid-cols-2 gap-px border border-gold-12 bg-gold-12'>
 					{STATS.map((s) => (
 						<div key={s.label} className='p-10 flex flex-col gap-3 bg-deep'>
-							<div
-								className='leading-none font-cinzel-deco text-gold'
-								style={{ fontSize: '2.2rem' }}
-							>
-								{s.num}
+							<div className='leading-none font-cinzel-deco text-gold text-[2.2rem]'>
+								{s.num}+
 							</div>
 							<div className='text-[0.85rem] tracking-[0.05em] font-cormorant text-subtle'>
 								{s.label}
@@ -74,4 +54,6 @@ export default function About() {
 			</div>
 		</section>
 	);
-}
+};
+
+export default About;

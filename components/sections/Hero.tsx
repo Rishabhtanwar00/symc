@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from 'react';
 import SacredCircle from '../common/SacredCircle';
+import Link from 'next/link';
 
-export default function Hero() {
+const Hero = () => {
 	const [visible, setVisible] = useState(false);
 
 	useEffect(() => {
@@ -12,43 +13,22 @@ export default function Hero() {
 	}, []);
 
 	return (
-		<section
-			className='relative min-h-screen flex items-center justify-center overflow-hidden pt-[88px]'
-			// style={{ background: 'var(--gradient-hero)' }}
-		>
+		<section className='relative min-h-screen flex items-center justify-center overflow-hidden pt-[88px]'>
 			{/* Radial glow */}
-			<div
-				className='absolute inset-0 pointer-events-none'
-				style={{
-					background:
-						'radial-gradient(ellipse 70% 60% at 50% 60%, var(--color-gold-10) 0%, transparent 70%)',
-				}}
-			/>
+			<div className='absolute inset-0 bg-hero-glow pointer-events-none' />
 
 			{/* Spinning sacred geometry */}
-			<SacredCircle
-				className='absolute opacity-60 animate-spin-slow'
-				style={{
-					width: 'min(700px, 90vw)',
-					height: 'min(700px, 90vw)',
-					top: '50%',
-					left: '50%',
-					transform: 'translate(-50%, -50%)',
-				}}
-			/>
+			<div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
+				<SacredCircle className='opacity-60 h-[700px] max-h-[90vw] w-[700px] max-w-[90vw] animate-spin-slow origin-center' />
+			</div>
 
 			{/* Content */}
 			<div
-				className='relative z-10 text-center px-6 max-w-4xl mx-auto transition-all duration-[1400ms]'
-				style={{
-					opacity: visible ? 1 : 0,
-					transform: visible ? 'translateY(0)' : 'translateY(30px)',
-				}}
+				className={`relative z-10 text-center px-6 max-w-4xl mx-auto transition-all duration-[1400ms] ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}`}
 			>
 				{/* Eyebrow */}
 				<div
-					className='mb-8 inline-flex items-center gap-3 transition-opacity duration-[1800ms] delay-300'
-					style={{ opacity: visible ? 1 : 0 }}
+					className={`mb-8 inline-flex items-center gap-3 transition-opacity duration-[1800ms] delay-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
 				>
 					<span className='text-[10px] tracking-[0.35em] font-cinzel text-gold font-semibold'>
 						✦ SHREE YOGMAYA MEDITATION CENTRE ✦
@@ -56,18 +36,9 @@ export default function Hero() {
 				</div>
 
 				{/* Heading */}
-				<h1
-					className='mb-6 leading-[1.1] tracking-[-0.01em] font-cinzel-deco text-primary'
-					style={{ fontSize: 'clamp(2.8rem, 7vw, 5.5rem)' }}
-				>
+				<h1 className='mb-6 leading-[1.1] tracking-[-0.01em] font-cinzel-deco text-primary text-[clamp(2.8rem,_7vw,_5.5rem)]'>
 					Align With the{' '}
-					<span
-						style={{
-							background: 'var(--gradient-gold)',
-							WebkitBackgroundClip: 'text',
-							WebkitTextFillColor: 'transparent',
-						}}
-					>
+					<span className='bg-gradient-gold bg-clip-text text-transparent'>
 						Cosmos
 					</span>
 					,<br />
@@ -76,11 +47,7 @@ export default function Hero() {
 
 				{/* Tagline */}
 				<p
-					className='mb-12 mx-auto max-w-xl italic leading-[1.8] font-cormorant text-muted transition-opacity duration-[1800ms] delay-[600ms]'
-					style={{
-						fontSize: 'clamp(1rem, 2.2vw, 1.25rem)',
-						opacity: visible ? 1 : 0,
-					}}
+					className={`mb-12 mx-auto max-w-xl italic leading-[1.8] font-cormorant text-muted text-[clamp(1rem,_2.2vw,_1.25rem)] transition-opacity duration-[1800ms] delay-[600ms] ${visible ? 'opacity-100' : 'opacity-0'}`}
 				>
 					Ancient wisdom meets modern healing — through astrology, meditation,
 					and conscious life guidance at SYMC.
@@ -88,17 +55,15 @@ export default function Hero() {
 
 				{/* CTAs */}
 				<div
-					className='flex flex-col sm:flex-row gap-4 justify-center transition-opacity duration-[1800ms] delay-[900ms]'
-					style={{ opacity: visible ? 1 : 0 }}
+					className={`flex flex-col sm:flex-row gap-4 justify-center transition-opacity duration-[1800ms] delay-[900ms] ${visible ? 'opacity-100' : 'opacity-0'}`}
 				>
-					<a
+					<Link
 						href='#'
-						className='px-10 py-4 text-[11px] font-bold tracking-[0.2em] font-cinzel text-deep hover:opacity-85 transition-opacity duration-300'
-						style={{ background: 'var(--gradient-gold-btn)' }}
+						className='px-10 py-4 text-[11px] font-bold tracking-[0.2em] font-cinzel bg-gradient-gold-btn text-deep hover:opacity-85 transition-opacity duration-300'
 					>
 						BEGIN YOUR JOURNEY
-					</a>
-					<a
+					</Link>
+					<Link
 						href='#'
 						className='px-10 py-4 text-[11px] tracking-[0.2em] font-cinzel
                        text-gold-80 border border-gold-80
@@ -106,7 +71,7 @@ export default function Hero() {
                        transition-all duration-300'
 					>
 						EXPLORE SERVICES
-					</a>
+					</Link>
 				</div>
 
 				{/* Scroll indicator */}
@@ -114,15 +79,11 @@ export default function Hero() {
 					<span className='text-[10px] tracking-[0.25em] font-cinzel text-gold'>
 						SCROLL
 					</span>
-					<div
-						className='w-px h-10'
-						style={{
-							background:
-								'linear-gradient(to bottom, var(--color-gold), transparent)',
-						}}
-					/>
+					<div className='w-px h-10 bg-gradient-to-b from-gold to-transparent' />
 				</div>
 			</div>
 		</section>
 	);
-}
+};
+
+export default Hero;

@@ -1,4 +1,4 @@
-export default function Divider() {
+const Divider = () => {
 	return (
 		<div className='flex items-center justify-center py-2'>
 			<div className='w-15 h-px bg-gold-30' />
@@ -6,4 +6,6 @@ export default function Divider() {
 			<div className='w-15 h-px bg-gold-30' />
 		</div>
 	);
-}
+};
+
+export default Divider;

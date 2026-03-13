@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { useTheme } from '@/lib/ThemeContext';
 
-export default function StarCanvas() {
+const StarCanvas = () => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const { theme } = useTheme();
 
@@ -19,9 +19,6 @@ export default function StarCanvas() {
 		resize();
 		window.addEventListener('resize', resize);
 
-		/* Read star color from the CSS variable at runtime so it responds to
-       theme changes. Canvas API cannot use CSS vars directly, so we resolve
-       via getComputedStyle on every theme change. */
 		const getStarColor = () =>
 			getComputedStyle(document.documentElement)
 				.getPropertyValue('--color-gold')
@@ -74,4 +71,6 @@ export default function StarCanvas() {
 			className='pointer-events-none fixed inset-0 z-0 opacity-70'
 		/>
 	);
-}
+};
+
+export default StarCanvas;

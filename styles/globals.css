@@ -1,9 +1,6 @@
 @import 'tailwindcss';
 
-/* ─────────────────────────────────────────────────────────────
-   1. Runtime Theme Variables
-───────────────────────────────────────────────────────────── */
-
+/* Runtime Theme Variables */
 :root,
 [data-theme='dark'] {
 	/* Backgrounds */
@@ -18,15 +15,6 @@
 	--muted: rgba(255, 255, 255, 0.75);
 	--subtle: rgba(255, 255, 255, 0.65);
 	--faint: rgba(255, 255, 255, 0.5);
-
-	--gradient-hero: linear-gradient(
-		160deg,
-		#050714 0%,
-		#0a0d2c 55%,
-		#0d0a1a 100%
-	);
-	--gradient-section-a: linear-gradient(180deg, #0a0d2c 0%, #07091a 100%);
-	--gradient-section-b: linear-gradient(180deg, #07091a 0%, #0a0d2c 100%);
 
 	/* Navigation */
 	--nav-scrolled: rgba(5, 7, 20, 0.88);
@@ -47,24 +35,12 @@
 	--subtle: rgba(30, 20, 8, 0.65);
 	--faint: rgba(30, 20, 8, 0.55);
 
-	--gradient-hero: linear-gradient(
-		160deg,
-		#faf7f2 0%,
-		#f0ebe0 55%,
-		#ede6d8 100%
-	);
-	--gradient-section-a: linear-gradient(180deg, #e8e0d0 0%, #f0ebe0 100%);
-	--gradient-section-b: linear-gradient(180deg, #f0ebe0 0%, #e8e0d0 100%);
-
 	/* Navigation */
 	--nav-scrolled: rgba(250, 247, 242, 0.92);
 	--nav-mobile: rgba(250, 247, 242, 0.98);
 }
 
-/* ─────────────────────────────────────────────────────────────
-   2. Tailwind Theme Tokens
-───────────────────────────────────────────────────────────── */
-
+/* Tailwind Theme Tokens */
 @theme {
 	/* Background semantic colors */
 	--color-deepest: var(--deepest);
@@ -96,13 +72,46 @@
 	--color-gold-60: rgba(201, 168, 76, 0.6);
 	--color-gold-80: rgba(201, 168, 76, 0.8);
 
-	--gradient-gold: linear-gradient(
+	/* navigation */
+	--color-nav-scrolled: var(--nav-scrolled);
+	--color-nav-mobile: var(--nav-mobile);
+
+	/* graidients (--background-image to be appended to use it staright inside classes) */
+	--background-image-hero-glow: radial-gradient(
+		ellipse 70% 60% at 50% 60%,
+		var(--color-gold-06) 0%,
+		transparent 70%
+	);
+	--background-image-gradient-gold: linear-gradient(
 		135deg,
 		#c9a84c 0%,
 		#f0d080 50%,
 		#c9a84c 100%
 	);
-	--gradient-gold-btn: linear-gradient(135deg, #c9a84c, #a8813a);
+	--background-image-gradient-gold-btn: linear-gradient(
+		135deg,
+		#c9a84c,
+		#a8813a
+	);
+	--background-image-grid-gold:
+		linear-gradient(var(--color-gold-08) 1px, transparent 1px),
+		linear-gradient(90deg, var(--color-gold-08) 1px, transparent 1px);
+
+	--background-image-gradient-hero: linear-gradient(
+		160deg,
+		var(--deep) 0% var(--dark) 55%,
+		var(--mid) 100%
+	);
+	--background-image-gradient-section-a: linear-gradient(
+		180deg,
+		var(--mid) 0%,
+		var(--dark) 100%
+	);
+	--background-image-gradient-section-b: linear-gradient(
+		180deg,
+		var(--mid) 0%,
+		var(--dark) 100%
+	);
 
 	/* Fonts */
 	--font-cinzel: var(--font-cinzel-var), serif;
@@ -110,10 +119,7 @@
 	--font-cormorant: var(--font-cormorant-var), serif;
 }
 
-/* ─────────────────────────────────────────────────────────────
-   3. Base Styles
-───────────────────────────────────────────────────────────── */
-
+/* Base Styles */
 @layer base {
 	*,
 	*::before,
@@ -152,10 +158,7 @@
 	}
 }
 
-/* ─────────────────────────────────────────────────────────────
-   4. Smooth Theme Transition
-───────────────────────────────────────────────────────────── */
-
+/* Smooth Theme Transition */
 @layer utilities {
 	*:not(canvas):not(svg):not(svg *) {
 		transition-property: background-color, border-color, color;
@@ -164,14 +167,11 @@
 	}
 }
 
-/* ─────────────────────────────────────────────────────────────
-   5. Animations
-───────────────────────────────────────────────────────────── */
-
+/* Animations */
 @layer utilities {
 	@keyframes spin-slow {
 		to {
-			transform: translate(-50%, -50%) rotate(360deg);
+			transform: rotate(360deg);
 		}
 	}
 

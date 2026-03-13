@@ -1,22 +1,8 @@
+import Link from 'next/link';
 import Divider from '../common/Divider';
+import { FOOTER_COLS } from '@/lib/Data';
 
-const FOOTER_COLS = [
-	{
-		title: 'PATHS',
-		links: [
-			'Astrology Readings',
-			'Meditation Classes',
-			'Life Coaching',
-			'Retreats',
-		],
-	},
-	{
-		title: 'CONNECT',
-		links: ['About Us', 'Our Guide', 'Testimonials', 'Contact'],
-	},
-];
-
-export default function Footer() {
+const Footer = () => {
 	return (
 		<footer className='py-16 px-6 bg-deepest border-t border-gold-08'>
 			<div className='max-w-6xl mx-auto'>
@@ -47,12 +33,12 @@ export default function Footer() {
 							<ul className='flex flex-col gap-3'>
 								{col.links.map((l) => (
 									<li key={l}>
-										<a
+										<Link
 											href='#'
 											className='text-[0.95rem] font-cormorant text-subtle hover:text-gold transition-colors duration-300'
 										>
 											{l}
-										</a>
+										</Link>
 									</li>
 								))}
 							</ul>
@@ -68,17 +54,19 @@ export default function Footer() {
 					</p>
 					<div className='flex gap-6'>
 						{['Privacy', 'Terms', 'Sitemap'].map((l) => (
-							<a
+							<Link
 								key={l}
 								href='#'
 								className='text-[13px] font-cormorant text-faint hover:text-gold transition-colors duration-300'
 							>
 								{l}
-							</a>
+							</Link>
 						))}
 					</div>
 				</div>
 			</div>
 		</footer>
 	);
-}
+};
+
+export default Footer;

@@ -1,29 +1,9 @@
 'use client';
 
+import { TESTIMONIALS } from '@/lib/Data';
 import { useEffect, useState } from 'react';
 
-const TESTIMONIALS = [
-	{
-		quote:
-			'My astrology reading with SYMC was a turning point. I finally understood the patterns that were holding me back.',
-		name: 'Priya Sharma',
-		role: 'Meditation Student',
-	},
-	{
-		quote:
-			'The Yoga Nidra sessions have transformed how I sleep and how I relate to stress. I feel deeply anchored now.',
-		name: 'Arjun Mehta',
-		role: 'Life Coaching Client',
-	},
-	{
-		quote:
-			"SYMC doesn't just teach — they create space for genuine inner transformation. Truly a sacred place.",
-		name: 'Kavita Rao',
-		role: 'Astrology Consultation',
-	},
-];
-
-export default function Testimonials() {
+const Testimonials = () => {
 	const [active, setActive] = useState(0);
 
 	useEffect(() => {
@@ -35,10 +15,7 @@ export default function Testimonials() {
 	}, []);
 
 	return (
-		<section
-			className='relative py-32 px-6 text-center'
-			style={{ background: 'var(--gradient-section-b)' }}
-		>
+		<section className='relative py-32 px-6 text-center bg-gradient-section-b'>
 			<div className='max-w-3xl mx-auto'>
 				<p className='mb-12 text-[11px] tracking-[0.3em] font-cinzel text-gold font-semibold'>
 					✦ VOICES FROM THE JOURNEY ✦
@@ -47,8 +24,7 @@ export default function Testimonials() {
 				<div className='min-h-[150px]'>
 					<p
 						key={active}
-						className='italic leading-[1.8] font-cormorant text-muted animate-fade-up'
-						style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)' }}
+						className='italic leading-[1.8] font-cormorant text-muted text-[clamp(1.1rem,_2.5vw,_1.5rem)] animate-fade-up'
 					>
 						&quot;{TESTIMONIALS[active].quote}&quot;
 					</p>
@@ -76,4 +52,6 @@ export default function Testimonials() {
 			</div>
 		</section>
 	);
-}
+};
+
+export default Testimonials;

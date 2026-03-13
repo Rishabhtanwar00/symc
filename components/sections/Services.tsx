@@ -1,40 +1,15 @@
-const SERVICES = [
-	{
-		icon: '☽',
-		title: 'Astrology Readings',
-		desc: 'Decode the celestial map of your birth chart. Discover karmic patterns, planetary influences, and the cosmic timing shaping your destiny.',
-		tag: 'NATAL · TRANSIT · SYNASTRY',
-	},
-	{
-		icon: '◎',
-		title: 'Meditation Classes',
-		desc: 'From breath awareness to deep Yoga Nidra — guided sessions that dissolve mental noise and anchor you in profound stillness.',
-		tag: 'BEGINNERS · ADVANCED · ONLINE',
-	},
-	{
-		icon: '∞',
-		title: 'Life Coaching',
-		desc: 'Conscious guidance woven with Vedic philosophy, mindset science, and intuitive insight — to help you live with clarity and purpose.',
-		tag: '1-ON-1 · GROUP · RETREATS',
-	},
-];
+import { SERVICES } from '@/lib/Data';
 
-export default function Services() {
+const Services = () => {
 	return (
-		<section
-			className='relative py-32 px-6'
-			style={{ background: 'var(--gradient-section-a)' }}
-		>
+		<section className='relative py-32 px-6 bg-gradient-section-a'>
 			<div className='max-w-6xl mx-auto'>
 				{/* Header */}
 				<div className='text-center mb-20'>
 					<p className='mb-4 text-[11px] tracking-[0.3em] font-cinzel text-gold font-semibold'>
 						✦ WHAT WE OFFER ✦
 					</p>
-					<h2
-						className='leading-[1.2] font-cinzel-deco text-primary'
-						style={{ fontSize: 'clamp(1.8rem, 4vw, 3rem)' }}
-					>
+					<h2 className='leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.8rem,_4vw,_3rem)]'>
 						Sacred Pathways
 					</h2>
 					<p className='mt-4 max-w-lg mx-auto italic text-[1.05rem] font-cormorant text-subtle'>
@@ -79,4 +54,6 @@ export default function Services() {
 			</div>
 		</section>
 	);
-}
+};
+
+export default Services;
