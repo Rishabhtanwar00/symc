@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import SacredCircle from '../common/SacredCircle';
 
 const STATS = [
@@ -9,13 +10,9 @@ const STATS = [
 
 export default function About() {
 	return (
-		<section
-			className='relative py-32 px-6 overflow-hidden'
-			style={{ background: 'var(--color-bg-deep)' }}
-		>
-			{/* Background mandala */}
+		<section className='relative py-32 px-6 overflow-hidden bg-surface-deep'>
 			<SacredCircle
-				className='absolute opacity-10 pointer-events-none'
+				className='absolute opacity-20 pointer-events-none'
 				style={{
 					width: '500px',
 					height: '500px',
@@ -26,99 +23,53 @@ export default function About() {
 			/>
 
 			<div className='max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center'>
-				{/* ── Text ── */}
 				<div>
-					<p
-						className='mb-5 text-[11px] tracking-[0.3em]'
-						style={{
-							color: 'var(--color-gold)',
-							fontFamily: 'var(--font-cinzel)',
-						}}
-					>
+					<p className='mb-5 text-[11px] tracking-[0.3em] font-cinzel text-gold'>
 						✦ OUR STORY
 					</p>
 
 					<h2
-						className='mb-8 leading-[1.2]'
-						style={{
-							fontFamily: 'var(--font-cinzel-deco)',
-							fontSize: 'clamp(1.6rem, 3.5vw, 2.8rem)',
-							color: 'var(--color-text-primary)',
-						}}
+						className='mb-8 leading-[1.2] font-cinzel-deco text-primary'
+						style={{ fontSize: 'clamp(1.6rem, 3.5vw, 2.8rem)' }}
 					>
 						Where Stars Meet <br />
-						<span style={{ color: 'var(--color-gold)' }}>Stillness</span>
+						<span className='text-gold'>Stillness</span>
 					</h2>
 
-					<p
-						className='mb-6 italic text-[1.1rem] leading-[1.9]'
-						style={{
-							fontFamily: 'var(--font-cormorant)',
-							color: 'var(--color-text-muted)',
-						}}
-					>
+					<p className='mb-6 italic text-[1.1rem] leading-[1.9] font-cormorant text-muted'>
 						SYMC was founded on a simple belief — that the universe speaks to
 						each of us, and that true healing begins when we learn to listen.
 						Our centre blends Vedic astrology, yogic meditation, and
 						heart-centred life coaching into a unified path of awakening.
 					</p>
 
-					<p
-						className='text-[1.1rem] leading-[1.9]'
-						style={{
-							fontFamily: 'var(--font-cormorant)',
-							color: 'var(--color-text-subtle)',
-						}}
-					>
+					<p className='text-[1.1rem] leading-[1.9] font-cormorant text-subtle'>
 						Rooted in ancient Indian wisdom and guided by compassion, we walk
 						with you — from confusion to clarity, from anxiety to peace, from
 						seeking to becoming.
 					</p>
 
-					<a
-						href='#'
-						className='mt-10 inline-flex items-center gap-3 text-[11px] tracking-[0.2em]
-                       transition-colors duration-300 hover:opacity-80'
-						style={{
-							color: 'var(--color-gold)',
-							fontFamily: 'var(--font-cinzel)',
-						}}
+					<Link
+						href='/'
+						className='mt-10 inline-flex items-center gap-3 text-[11px] tracking-[0.2em] font-cinzel text-gold hover:opacity-80 transition-opacity duration-300'
 					>
 						DISCOVER OUR PHILOSOPHY <span>→</span>
-					</a>
+					</Link>
 				</div>
 
-				{/* ── Stats Grid ── */}
-				<div
-					className='grid grid-cols-2 gap-px'
-					style={{
-						border: '1px solid var(--color-gold-12)',
-						background: 'var(--color-gold-12)',
-					}}
-				>
+				<div className='grid grid-cols-2 gap-px border border-gold-12 bg-gold-12'>
 					{STATS.map((s) => (
 						<div
 							key={s.label}
-							className='p-10 flex flex-col gap-3'
-							style={{ background: 'var(--color-bg-deep)' }}
+							className='p-10 flex flex-col gap-3 bg-surface-deep'
 						>
 							<div
-								className='leading-none'
-								style={{
-									fontFamily: 'var(--font-cinzel-deco)',
-									fontSize: '2.2rem',
-									color: 'var(--color-gold)',
-								}}
+								className='leading-none font-cinzel-deco text-gold'
+								style={{ fontSize: '2.2rem' }}
 							>
 								{s.num}
 							</div>
-							<div
-								className='text-[0.85rem] tracking-[0.05em]'
-								style={{
-									fontFamily: 'var(--font-cormorant)',
-									color: 'var(--color-text-subtle)',
-								}}
-							>
+							<div className='text-[0.85rem] tracking-[0.05em] font-cormorant text-subtle'>
 								{s.label}
 							</div>
 						</div>

@@ -37,68 +37,38 @@ export default function Testimonials() {
 	return (
 		<section
 			className='relative py-32 px-6 text-center'
-			style={{ background: 'var(--gradient-section-b)' }}
+			style={{ background: 'var(--rt-gradient-section-b)' }}
 		>
 			<div className='max-w-3xl mx-auto'>
-				<p
-					className='mb-12 text-[11px] tracking-[0.3em]'
-					style={{
-						color: 'var(--color-gold)',
-						fontFamily: 'var(--font-cinzel)',
-					}}
-				>
+				<p className='mb-12 text-[11px] tracking-[0.3em] font-cinzel text-gold'>
 					✦ VOICES FROM THE JOURNEY ✦
 				</p>
 
-				{/* Quote */}
-				<div style={{ minHeight: '150px' }}>
+				<div className='min-h-[150px]'>
 					<p
 						key={active}
-						className='italic leading-[1.8] animate-fade-up'
-						style={{
-							fontFamily: 'var(--font-cormorant)',
-							fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)',
-							color: 'var(--color-text-muted)',
-						}}
+						className='italic leading-[1.8] font-cormorant text-muted animate-fade-up'
+						style={{ fontSize: 'clamp(1.1rem, 2.5vw, 1.5rem)' }}
 					>
 						&quot;{TESTIMONIALS[active].quote}&quot;
 					</p>
 				</div>
 
-				{/* Attribution */}
 				<div className='mt-8'>
-					<div
-						className='text-[13px]'
-						style={{
-							color: 'var(--color-gold)',
-							fontFamily: 'var(--font-cinzel)',
-						}}
-					>
+					<div className='text-[13px] font-cinzel text-gold'>
 						{TESTIMONIALS[active].name}
 					</div>
-					<div
-						className='text-[13px] mt-1'
-						style={{
-							color: 'var(--color-text-subtle)',
-							fontFamily: 'var(--font-cormorant)',
-						}}
-					>
+					<div className='text-[13px] mt-1 font-cormorant text-subtle'>
 						{TESTIMONIALS[active].role}
 					</div>
 				</div>
 
-				{/* Dots */}
 				<div className='flex justify-center gap-2 mt-10'>
 					{TESTIMONIALS.map((_, i) => (
 						<button
 							key={i}
 							onClick={() => setActive(i)}
-							className='h-1.5 transition-all duration-300 border-none cursor-pointer'
-							style={{
-								width: i === active ? '24px' : '6px',
-								background:
-									i === active ? 'var(--color-gold)' : 'var(--color-gold-25)',
-							}}
+							className={`h-1.5 border-none cursor-pointer transition-all duration-300 ${i === active ? 'w-6 bg-gold' : 'w-1.5 bg-gold-25'}`}
 							aria-label={`Testimonial ${i + 1}`}
 						/>
 					))}
