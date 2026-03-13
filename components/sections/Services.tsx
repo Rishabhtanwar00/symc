@@ -23,12 +23,12 @@ export default function Services() {
 	return (
 		<section
 			className='relative py-32 px-6'
-			style={{ background: 'var(--rt-gradient-section-a)' }}
+			style={{ background: 'var(--gradient-section-a)' }}
 		>
 			<div className='max-w-6xl mx-auto'>
 				{/* Header */}
 				<div className='text-center mb-20'>
-					<p className='mb-4 text-[11px] tracking-[0.3em] font-cinzel text-gold'>
+					<p className='mb-4 text-[11px] tracking-[0.3em] font-cinzel text-gold font-semibold'>
 						✦ WHAT WE OFFER ✦
 					</p>
 					<h2
@@ -49,7 +49,7 @@ export default function Services() {
 						<div
 							key={s.title}
 							className='group relative p-10 flex flex-col gap-5 cursor-pointer
-                         bg-surface-dark hover:bg-gold-04
+                         bg-dark hover:bg-gold-04
                          transition-colors duration-500'
 						>
 							{/* Corner accents */}
@@ -66,7 +66,7 @@ export default function Services() {
 								{s.desc}
 							</p>
 
-							<div className='text-[9px] tracking-[0.25em] opacity-80 font-cinzel text-gold'>
+							<div className='text-[9px] tracking-[0.25em] opacity-60 font-cinzel text-gold-dark'>
 								{s.tag}
 							</div>
 

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import SacredCircle from '../common/SacredCircle';
 
 const STATS = [
@@ -10,7 +9,7 @@ const STATS = [
 
 export default function About() {
 	return (
-		<section className='relative py-32 px-6 overflow-hidden bg-surface-deep'>
+		<section className='relative py-32 px-6 overflow-hidden bg-deep'>
 			<SacredCircle
 				className='absolute opacity-20 pointer-events-none'
 				style={{
@@ -24,8 +23,8 @@ export default function About() {
 
 			<div className='max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center'>
 				<div>
-					<p className='mb-5 text-[11px] tracking-[0.3em] font-cinzel text-gold'>
-						✦ OUR STORY
+					<p className='mb-5 text-[11px] tracking-[0.3em] font-cinzel text-gold font-semibold'>
+						✦ OUR STORY ✦
 					</p>
 
 					<h2
@@ -49,20 +48,17 @@ export default function About() {
 						seeking to becoming.
 					</p>
 
-					<Link
-						href='/'
+					<a
+						href='#'
 						className='mt-10 inline-flex items-center gap-3 text-[11px] tracking-[0.2em] font-cinzel text-gold hover:opacity-80 transition-opacity duration-300'
 					>
 						DISCOVER OUR PHILOSOPHY <span>→</span>
-					</Link>
+					</a>
 				</div>
 
 				<div className='grid grid-cols-2 gap-px border border-gold-12 bg-gold-12'>
 					{STATS.map((s) => (
-						<div
-							key={s.label}
-							className='p-10 flex flex-col gap-3 bg-surface-deep'
-						>
+						<div key={s.label} className='p-10 flex flex-col gap-3 bg-deep'>
 							<div
 								className='leading-none font-cinzel-deco text-gold'
 								style={{ fontSize: '2.2rem' }}
