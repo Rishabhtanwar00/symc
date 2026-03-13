@@ -1,8 +1,6 @@
-import Link from "next/link";
-
 export default function CTABanner() {
 	return (
-		<section className='relative py-32 px-6 text-center overflow-hidden bg-surface-deep'>
+		<section className='relative py-32 px-6 text-center overflow-hidden bg-deep'>
 			<div
 				className='absolute inset-0 pointer-events-none'
 				style={{
@@ -13,13 +11,13 @@ export default function CTABanner() {
 			<div
 				className='absolute inset-0 pointer-events-none'
 				style={{
-					backgroundImage: `linear-gradient(var(--color-gold-04) 1px, transparent 1px), linear-gradient(90deg, var(--color-gold-04) 1px, transparent 1px)`,
+					backgroundImage: `linear-gradient(var(--color-gold-08) 1px, transparent 1px), linear-gradient(90deg, var(--color-gold-08) 1px, transparent 1px)`,
 					backgroundSize: '60px 60px',
 				}}
 			/>
 
 			<div className='relative z-10 max-w-2xl mx-auto'>
-				<p className='mb-5 text-[11px] tracking-[0.3em] font-cinzel text-gold'>
+				<p className='mb-5 text-[11px] tracking-[0.3em] font-cinzel text-gold font-semibold'>
 					✦ TAKE THE FIRST STEP ✦
 				</p>
 
@@ -35,13 +33,13 @@ export default function CTABanner() {
 					birth chart reading with your first consultation.
 				</p>
 
-				<Link
-					href='/'
-					className='inline-block px-12 py-5 text-[11px] font-bold tracking-[0.2em] font-cinzel text-surface-deep hover:opacity-85 transition-opacity duration-300'
+				<a
+					href='#'
+					className='inline-block px-12 py-5 text-[11px] font-bold tracking-[0.2em] font-cinzel text-deep hover:opacity-85 transition-opacity duration-300'
 					style={{ background: 'var(--gradient-gold-btn)' }}
 				>
 					BOOK A FREE CONSULTATION
-				</Link>
+				</a>
 			</div>
 		</section>
 	);

@@ -62,9 +62,9 @@ function ThemeToggle() {
 		<button
 			onClick={handleToggle}
 			aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} theme`}
-			className='flex items-center gap-2 px-3 py-2 text-[10px] tracking-[0.15em] font-cinzel
+			className='flex items-center gap-2 px-3 py-2 text-[10px] tracking-[0.15em] font-cinzel font-semibold
                  text-gold border border-gold-60
-                 hover:bg-gold hover:text-surface-deep hover:border-gold
+                 hover:bg-gold hover:text-deep hover:border-gold
                  transition-all duration-300 cursor-pointer'
 		>
 			<span className={`flex ${spinning ? 'animate-toggle-spin' : ''}`}>
@@ -92,7 +92,7 @@ export default function Navbar() {
 			className='fixed top-0 left-0 right-0 z-50 transition-all duration-500'
 			style={{
 				/* Dynamic scrolled state — can't be static Tailwind classes */
-				background: scrolled ? 'var(--rt-nav-scrolled)' : 'transparent',
+				background: scrolled ? 'var(--nav-scrolled)' : 'transparent',
 				backdropFilter: scrolled ? 'blur(16px)' : 'none',
 				borderBottom: scrolled ? '1px solid var(--color-gold-12)' : 'none',
 			}}
@@ -116,7 +116,7 @@ export default function Navbar() {
 					{NAV_LINKS.map((item) => (
 						<Link
 							key={item}
-							href='/'
+							href='#'
 							className='text-[13px] font-cormorant text-muted tracking-[0.15em] hover:text-gold transition-colors duration-300'
 						>
 							{item.toUpperCase()}
@@ -129,7 +129,7 @@ export default function Navbar() {
 						href='/'
 						className='px-5 py-2 text-[11px] font-cinzel tracking-[0.15em]
                        text-gold border border-gold
-                       hover:bg-gold hover:text-surface-deep
+                       hover:bg-gold hover:text-deep
                        transition-all duration-300'
 					>
 						BOOK SESSION
@@ -139,14 +139,29 @@ export default function Navbar() {
 				{/* Mobile: Toggle + Hamburger */}
 				<div className='md:hidden flex items-center gap-4'>
 					<ThemeToggle />
+
 					<button
-						className='flex flex-col gap-1.5'
+						className='relative flex flex-col justify-center items-center w-8 h-8'
 						onClick={() => setMenuOpen(!menuOpen)}
 						aria-label='Toggle menu'
 					>
-						{[0, 1, 2].map((i) => (
-							<span key={i} className='block w-6 h-0.5 bg-gold' />
-						))}
+						<span
+							className={`absolute w-6 h-[1.5px] bg-gold rounded-full transition-all duration-300 ${
+								menuOpen ? 'rotate-45' : '-translate-y-2'
+							}`}
+						/>
+
+						<span
+							className={`absolute w-6 h-[1.5px] bg-gold rounded-full transition-all duration-300 ${
+								menuOpen ? 'opacity-0' : 'opacity-100'
+							}`}
+						/>
+
+						<span
+							className={`absolute w-6 h-[1.5px] bg-gold rounded-full transition-all duration-300 ${
+								menuOpen ? '-rotate-45' : 'translate-y-2'
+							}`}
+						/>
 					</button>
 				</div>
 			</div>
@@ -155,16 +170,16 @@ export default function Navbar() {
 			{menuOpen && (
 				<div
 					className='md:hidden px-6 py-6 flex flex-col gap-5'
-					style={{ background: 'var(--rt-nav-mobile)' }}
+					style={{ background: 'var(--nav-mobile)' }}
 				>
 					{[...NAV_LINKS, 'Book Session'].map((item) => (
-						<Link
+						<a
 							key={item}
-							href='/'
+							href='#'
 							className='text-[11px] font-cinzel text-gold tracking-[0.2em]'
 						>
 							{item.toUpperCase()}
-						</Link>
+						</a>
 					))}
 				</div>
 			)}

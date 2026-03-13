@@ -37,10 +37,10 @@ export default function Testimonials() {
 	return (
 		<section
 			className='relative py-32 px-6 text-center'
-			style={{ background: 'var(--rt-gradient-section-b)' }}
+			style={{ background: 'var(--gradient-section-b)' }}
 		>
 			<div className='max-w-3xl mx-auto'>
-				<p className='mb-12 text-[11px] tracking-[0.3em] font-cinzel text-gold'>
+				<p className='mb-12 text-[11px] tracking-[0.3em] font-cinzel text-gold font-semibold'>
 					✦ VOICES FROM THE JOURNEY ✦
 				</p>
 

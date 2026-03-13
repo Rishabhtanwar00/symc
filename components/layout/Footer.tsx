@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import Divider from '../common/Divider';
 
 const FOOTER_COLS = [
@@ -19,7 +18,7 @@ const FOOTER_COLS = [
 
 export default function Footer() {
 	return (
-		<footer className='py-16 px-6 bg-surface-deepest border-t border-gold-08'>
+		<footer className='py-16 px-6 bg-deepest border-t border-gold-08'>
 			<div className='max-w-6xl mx-auto'>
 				<div className='grid md:grid-cols-4 gap-12 mb-16'>
 					<div className='md:col-span-2'>
@@ -42,18 +41,18 @@ export default function Footer() {
 
 					{FOOTER_COLS.map((col) => (
 						<div key={col.title}>
-							<h4 className='text-[10px] tracking-[0.3em] mb-5 font-cinzel text-gold'>
+							<h4 className='text-[10px] tracking-[0.3em] mb-5 font-cinzel text-gold font-semibold'>
 								{col.title}
 							</h4>
 							<ul className='flex flex-col gap-3'>
 								{col.links.map((l) => (
 									<li key={l}>
-										<Link
-											href='/'
+										<a
+											href='#'
 											className='text-[0.95rem] font-cormorant text-subtle hover:text-gold transition-colors duration-300'
 										>
 											{l}
-										</Link>
+										</a>
 									</li>
 								))}
 							</ul>
@@ -64,18 +63,18 @@ export default function Footer() {
 				<Divider />
 
 				<div className='mt-10 flex flex-col md:flex-row justify-between items-center gap-4'>
-					<p className='text-[12px] font-cormorant text-faint'>
-						© 2026 Shree Yogmaya Meditation Centre. All rights reserved.
+					<p className='text-[13px] font-cormorant text-faint'>
+						© 2025 Shree Yogmaya Meditation Centre. All rights reserved.
 					</p>
 					<div className='flex gap-6'>
 						{['Privacy', 'Terms', 'Sitemap'].map((l) => (
-							<Link
+							<a
 								key={l}
-								href='/'
-								className='text-[12px] font-cormorant text-faint hover:text-gold transition-colors duration-300'
+								href='#'
+								className='text-[13px] font-cormorant text-faint hover:text-gold transition-colors duration-300'
 							>
 								{l}
-							</Link>
+							</a>
 						))}
 					</div>
 				</div>

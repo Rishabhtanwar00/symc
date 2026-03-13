@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import SacredCircle from '../common/SacredCircle';
-import Link from 'next/link';
 
 export default function Hero() {
 	const [visible, setVisible] = useState(false);
@@ -15,14 +14,14 @@ export default function Hero() {
 	return (
 		<section
 			className='relative min-h-screen flex items-center justify-center overflow-hidden pt-[88px]'
-			// style={{ background: 'var(--rt-gradient-hero)' }}
+			// style={{ background: 'var(--gradient-hero)' }}
 		>
 			{/* Radial glow */}
 			<div
 				className='absolute inset-0 pointer-events-none'
 				style={{
 					background:
-						'radial-gradient(ellipse 70% 60% at 50% 60%, var(--color-gold-07) 0%, transparent 70%)',
+						'radial-gradient(ellipse 70% 60% at 50% 60%, var(--color-gold-10) 0%, transparent 70%)',
 				}}
 			/>
 
@@ -51,7 +50,7 @@ export default function Hero() {
 					className='mb-8 inline-flex items-center gap-3 transition-opacity duration-[1800ms] delay-300'
 					style={{ opacity: visible ? 1 : 0 }}
 				>
-					<span className='text-[10px] tracking-[0.35em] font-cinzel text-gold'>
+					<span className='text-[10px] tracking-[0.35em] font-cinzel text-gold font-semibold'>
 						✦ SHREE YOGMAYA MEDITATION CENTRE ✦
 					</span>
 				</div>
@@ -92,26 +91,26 @@ export default function Hero() {
 					className='flex flex-col sm:flex-row gap-4 justify-center transition-opacity duration-[1800ms] delay-[900ms]'
 					style={{ opacity: visible ? 1 : 0 }}
 				>
-					<Link
-						href='/'
-						className='px-10 py-4 text-[11px] font-bold tracking-[0.2em] font-cinzel text-surface-deep hover:opacity-85 transition-opacity duration-300'
+					<a
+						href='#'
+						className='px-10 py-4 text-[11px] font-bold tracking-[0.2em] font-cinzel text-deep hover:opacity-85 transition-opacity duration-300'
 						style={{ background: 'var(--gradient-gold-btn)' }}
 					>
 						BEGIN YOUR JOURNEY
-					</Link>
-					<Link
-						href='/'
-						className='px-10 py-4 text-[11px] font-bold tracking-[0.2em] font-cinzel
-                       text-gold border border-gold
-                       hover:bg-gold hover:text-surface-deep 
+					</a>
+					<a
+						href='#'
+						className='px-10 py-4 text-[11px] tracking-[0.2em] font-cinzel
+                       text-gold-80 border border-gold-80
+                       hover:border-gold hover:text-gold
                        transition-all duration-300'
 					>
 						EXPLORE SERVICES
-					</Link>
+					</a>
 				</div>
 
 				{/* Scroll indicator */}
-				<div className='mt-20 flex flex-col items-center gap-2 opacity-60 animate-float'>
+				<div className='mt-20 flex flex-col items-center gap-2 opacity-40 animate-float'>
 					<span className='text-[10px] tracking-[0.25em] font-cinzel text-gold'>
 						SCROLL
 					</span>
