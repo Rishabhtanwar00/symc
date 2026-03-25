@@ -1,59 +1,81 @@
-import { SERVICES } from '@/lib/Data';
+import Link from "next/link";
+// import { SacredCircle, SectionLabel } from '@/components/common/UI';
+import { SERVICES } from "@/lib/data";
+import SacredCircle from "../common/SacredCircle";
+import Button from "../ui/Button";
 
-const Services = () => {
-	return (
-		<section className='relative py-32 px-6 bg-gradient-section-a'>
-			<div className='max-w-6xl mx-auto'>
-				{/* Header */}
-				<div className='text-center mb-20'>
-					<p className='mb-4 text-[11px] tracking-[0.3em] font-cinzel text-gold font-semibold'>
-						✦ WHAT WE OFFER ✦
-					</p>
-					<h2 className='leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.8rem,_4vw,_3rem)]'>
-						Sacred Pathways
-					</h2>
-					<p className='mt-4 max-w-lg mx-auto italic text-[1.05rem] font-cormorant text-subtle'>
-						Three doorways to self-discovery, aligned with ancient Yogic and
-						Vedic traditions.
-					</p>
-				</div>
+const Services = () => (
+  <section
+    className="relative py-28 px-6 bg-gold-06 overflow-hidden"
+    id="services"
+  >
+    <SacredCircle className="absolute opacity-30 w-100 h-100 -right-[100px] top-20 pointer-events-none animate-spin-slow" />
+    <SacredCircle className="absolute opacity-30 w-100 h-100 -left-[20px] top-70 pointer-events-none animate-spin-slow" />
 
-				{/* Grid */}
-				<div className='grid md:grid-cols-3 gap-px border border-gold-10 bg-gold-10'>
-					{SERVICES.map((s) => (
-						<div
-							key={s.title}
-							className='group relative p-10 flex flex-col gap-5 cursor-pointer
-                         bg-dark hover:bg-gold-04
-                         transition-colors duration-500'
-						>
-							{/* Corner accents */}
-							<div className='absolute top-0 left-0 w-6 h-6 border-t border-l border-gold transition-all duration-500 group-hover:w-10 group-hover:h-10' />
-							<div className='absolute bottom-0 right-0 w-6 h-6 border-b border-r border-gold transition-all duration-500 group-hover:w-10 group-hover:h-10' />
+    <SacredCircle className="absolute opacity-30 w-150 h-150 right-[250px] bottom-20 pointer-events-none animate-spin-slow" />
 
-							<div className='text-[28px] leading-none text-gold'>{s.icon}</div>
+    <div className="max-w-6xl mx-auto">
+      <div className="text-center mb-16">
+        <p className="mb-5 text-[12px] tracking-[0.3em] font-cinzel text-gold font-semibold">
+          ✦ WHAT WE OFFER ✦
+        </p>
 
-							<h3 className='text-base tracking-[0.05em] font-cinzel text-primary'>
-								{s.title}
-							</h3>
+        <h2 className="mb-2 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
+          Sacred
+          <span className="text-gold"> Pathways</span>
+        </h2>
+        <p className="max-w-xl mx-auto text-[1.05rem] font-cormorant text-subtle">
+          Doorways to self-discovery, aligned with ancient Yogic and Vedic
+          traditions.
+        </p>
+      </div>
 
-							<p className='italic text-base leading-[1.75] flex-1 font-cormorant text-subtle'>
-								{s.desc}
-							</p>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+        {SERVICES.map((s, i) => (
+          <Link
+            key={s.id}
+            href={`/services#${s.id}`}
+            className={`group relative p-8 flex flex-col gap-4 cursor-pointer bg-surface transition-colors duration-500
+							`}
+          >
+            {/* Hover bg */}
+            <div className="absolute inset-0 bg-gold-04 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-							<div className='text-[9px] tracking-[0.25em] opacity-60 font-cinzel text-gold-dark'>
-								{s.tag}
-							</div>
+            {/* Corner accents */}
+            <div className="absolute top-0 left-0 w-5 h-5 border-t border-l border-gold transition-all duration-500 group-hover:w-9 group-hover:h-9" />
+            <div className="absolute bottom-0 right-0 w-5 h-5 border-b border-r border-gold transition-all duration-500 group-hover:w-9 group-hover:h-9" />
 
-							<div className='flex items-center gap-2 text-[11px] tracking-[0.15em] font-cinzel text-gold transition-all duration-300'>
-								LEARN MORE <span>→</span>
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
-	);
-};
+            <div className="relative z-10">
+              <div className="text-[26px] leading-none text-gold mb-3">
+                {s.icon}
+              </div>
+              <h3 className="text-[14px] tracking-[0.06em] font-cinzel font-semibold text-muted mb-2">
+                {s.title}
+              </h3>
+              <p className=" text-[0.95rem] leading-[1.7] font-lora text-subtle flex-1">
+                {s.short}
+              </p>
+              <div className="mt-4 text-[9px] tracking-[0.25em] font-lora font-semibold italic text-gold opacity-80">
+                {s.tag}
+              </div>
+              <div className="mt-3 flex items-center gap-2 text-[10px] tracking-[0.15em] font-cinzel text-gold">
+                LEARN MORE{" "}
+                <span className="transition-transform duration-300 group-hover:translate-x-1">
+                  →
+                </span>
+              </div>
+            </div>
+          </Link>
+        ))}
+      </div>
+
+      <div className="text-center mt-12">
+        <Link href={"/services"}>
+          <Button label="VIEW ALL SERVICES →" size="lg" variant="fill" />
+        </Link>
+      </div>
+    </div>
+  </section>
+);
 
 export default Services;

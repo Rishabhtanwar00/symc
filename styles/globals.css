@@ -1,226 +1,250 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
-/* Runtime Theme Variables */
+/* ─────────────────────────────────────────────────────────────
+   1. Runtime Theme Variables
+───────────────────────────────────────────────────────────── */
+
 :root,
-[data-theme='dark'] {
-	/* Backgrounds */
-	--deepest: #030410;
-	--deep: #050714;
-	--dark: #07091a;
-	--mid: #0a0d2c;
-	--surface: #0d0a1a;
+[data-theme="dark"] {
+  /* Backgrounds */
+  --deepest: #030410;
+  --deep: #050714;
+  --dark: #07091a;
+  --mid: #0a0d2c;
+  --surface: #0d0a1a;
 
-	/* Text */
-	--primary: #ffffff;
-	--muted: rgba(255, 255, 255, 0.75);
-	--subtle: rgba(255, 255, 255, 0.65);
-	--faint: rgba(255, 255, 255, 0.5);
+  /* Text */
+  --primary: #ffffff;
+  --muted: rgba(255, 255, 255, 0.75);
+  --subtle: rgba(255, 255, 255, 0.65);
+  --faint: rgba(255, 255, 255, 0.5);
 
-	/* Navigation */
-	--nav-scrolled: rgba(5, 7, 20, 0.88);
-	--nav-mobile: rgba(5, 7, 20, 0.97);
+  /* --gold: #c9a84c;
+  --gold-light: #f0d080;
+  --gold-dark: #a8813a; */
+
+  --gold: #b8922e;
+  --gold-light: #d4af37;
+  --gold-dark: #8a6a1f;
+
+  /* Navigation */
+  --nav-scrolled: rgba(5, 7, 20, 0.88);
+  --nav-mobile: rgba(5, 7, 20, 0.97);
 }
 
-[data-theme='light'] {
-	/* Backgrounds */
-	--deepest: #f5f0e8;
-	--deep: #faf7f2;
-	--dark: #f0ebe0;
-	--mid: #e8e0d0;
-	--surface: #ede6d8;
+[data-theme="light"] {
+  /* Backgrounds */
+  --deepest: #f5f0e8;
+  --deep: #faf7f2;
+  --dark: #f0ebe0;
+  --mid: #e8e0d0;
+  --surface: #ede6d8;
 
-	/* Text */
-	--primary: #1a1408;
-	--muted: rgba(30, 20, 8, 0.75);
-	--subtle: rgba(30, 20, 8, 0.65);
-	--faint: rgba(30, 20, 8, 0.55);
+  /* Text */
+  --primary: #1a1408;
+  --muted: rgba(30, 20, 8, 0.75);
+  --subtle: rgba(30, 20, 8, 0.65);
+  --faint: rgba(30, 20, 8, 0.55);
 
-	/* Navigation */
-	--nav-scrolled: rgba(250, 247, 242, 0.92);
-	--nav-mobile: rgba(250, 247, 242, 0.98);
+  --gold: #b8922e;
+  --gold-light: #d4af37;
+  --gold-dark: #8a6a1f;
+
+  /* Navigation */
+  --nav-scrolled: rgba(250, 247, 242, 0.92);
+  --nav-mobile: rgba(250, 247, 242, 0.98);
 }
 
-/* Tailwind Theme Tokens */
+/* ─────────────────────────────────────────────────────────────
+   2. Tailwind Theme Tokens
+───────────────────────────────────────────────────────────── */
+
 @theme {
-	/* Background semantic colors */
-	--color-deepest: var(--deepest);
-	--color-deep: var(--deep);
-	--color-dark: var(--dark);
-	--color-mid: var(--mid);
-	--color-surface: var(--surface);
+  /* Background semantic colors */
+  --color-deepest: var(--deepest);
+  --color-deep: var(--deep);
+  --color-dark: var(--dark);
+  --color-mid: var(--mid);
+  --color-surface: var(--surface);
 
-	/* Text semantic colors */
-	--color-primary: var(--primary);
-	--color-muted: var(--muted);
-	--color-subtle: var(--subtle);
-	--color-faint: var(--faint);
+  /* Text semantic colors */
+  --color-primary: var(--primary);
+  --color-muted: var(--muted);
+  --color-subtle: var(--subtle);
+  --color-faint: var(--faint);
 
-	/* Gold palette */
-	--color-gold: #c9a84c;
-	--color-gold-light: #f0d080;
-	--color-gold-dark: #a8813a;
+  /* Gold palette */
+  --color-gold: var(--gold);
+  --color-gold-light: var(--gold-light);
+  --color-gold-dark: var(--gold-dark);
 
-	--color-gold-04: rgba(201, 168, 76, 0.04);
-	--color-gold-06: rgba(201, 168, 76, 0.06);
-	--color-gold-07: rgba(201, 168, 76, 0.07);
-	--color-gold-08: rgba(201, 168, 76, 0.08);
-	--color-gold-10: rgba(201, 168, 76, 0.1);
-	--color-gold-12: rgba(201, 168, 76, 0.12);
-	--color-gold-25: rgba(201, 168, 76, 0.25);
-	--color-gold-30: rgba(201, 168, 76, 0.3);
-	--color-gold-40: rgba(201, 168, 76, 0.4);
-	--color-gold-60: rgba(201, 168, 76, 0.6);
-	--color-gold-80: rgba(201, 168, 76, 0.8);
+  --color-gold-04: rgba(201, 168, 76, 0.04);
+  --color-gold-06: rgba(201, 168, 76, 0.06);
+  --color-gold-07: rgba(201, 168, 76, 0.07);
+  --color-gold-08: rgba(201, 168, 76, 0.08);
+  --color-gold-10: rgba(201, 168, 76, 0.1);
+  --color-gold-12: rgba(201, 168, 76, 0.12);
+  --color-gold-20: rgba(201, 168, 76, 0.2);
+  --color-gold-25: rgba(201, 168, 76, 0.25);
+  --color-gold-30: rgba(201, 168, 76, 0.3);
+  --color-gold-40: rgba(201, 168, 76, 0.4);
+  --color-gold-60: rgba(201, 168, 76, 0.6);
+  --color-gold-80: rgba(201, 168, 76, 0.8);
 
-	/* navigation */
-	--color-nav-scrolled: var(--nav-scrolled);
-	--color-nav-mobile: var(--nav-mobile);
+  --color-dark: #030410;
+  --color-light: #ffffff;
 
-	/* graidients (--background-image to be appended to use it staright inside classes) */
-	--background-image-hero-glow: radial-gradient(
-		ellipse 70% 60% at 50% 60%,
-		var(--color-gold-06) 0%,
-		transparent 70%
-	);
-	--background-image-gradient-gold: linear-gradient(
-		135deg,
-		#c9a84c 0%,
-		#f0d080 50%,
-		#c9a84c 100%
-	);
-	--background-image-gradient-gold-btn: linear-gradient(
-		135deg,
-		#c9a84c,
-		#a8813a
-	);
-	--background-image-grid-gold:
-		linear-gradient(var(--color-gold-08) 1px, transparent 1px),
-		linear-gradient(90deg, var(--color-gold-08) 1px, transparent 1px);
+  --background-image-gradient-gold: linear-gradient(
+    135deg,
+    #c9a84c 0%,
+    #f0d080 50%,
+    #c9a84c 100%
+  );
+  --background-image-gradient-gold-btn: linear-gradient(
+    135deg,
+    #c9a84c,
+    #a8813a
+  );
 
-	--background-image-gradient-hero: linear-gradient(
-		160deg,
-		var(--deep) 0% var(--dark) 55%,
-		var(--mid) 100%
-	);
-	--background-image-gradient-section-a: linear-gradient(
-		180deg,
-		var(--mid) 0%,
-		var(--dark) 100%
-	);
-	--background-image-gradient-section-b: linear-gradient(
-		180deg,
-		var(--mid) 0%,
-		var(--dark) 100%
-	);
+  --background-image-gradient-hero: linear-gradient(
+    160deg,
+    var(--deep) 0%,
+    var(--dark) 55%,
+    var(--surface) 100%
+  );
 
-	/* Fonts */
-	--font-cinzel: var(--font-cinzel-var), serif;
-	--font-cinzel-deco: var(--font-cinzel-deco-var), serif;
-	--font-cormorant: var(--font-cormorant-var), serif;
+  --background-image-gradient-section-a: linear-gradient(
+    180deg,
+    var(--mid) 0%,
+    var(--dark) 100%
+  );
+  --background-image-gradient-section-b: linear-gradient(
+    180deg,
+    var(--dark) 0%,
+    var(--mid) 100%
+  );
+
+  --color-nav-scrolled: var(--nav-scrolled);
+  --color-nav-mobile: var(--nav-mobile);
+
+  /* Fonts */
+  --font-cinzel: var(--font-cinzel-var), serif;
+  --font-cinzel-deco: var(--font-cinzel-deco-var), serif;
+  --font-cormorant: var(--font-cormorant-var), serif;
+  --font-lora: var(--font-lora-var), serif;
 }
 
-/* Base Styles */
+/* ─────────────────────────────────────────────────────────────
+   3. Base Styles
+───────────────────────────────────────────────────────────── */
+
 @layer base {
-	*,
-	*::before,
-	*::after {
-		box-sizing: border-box;
-		margin: 0;
-		padding: 0;
-	}
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-	html {
-		scroll-behavior: smooth;
-	}
+  html {
+    scroll-behavior: smooth;
+  }
 
-	body {
-		font-family: var(--font-cormorant);
-		@apply bg-deep text-primary antialiased;
-		transition:
-			background-color 0.4s ease,
-			color 0.4s ease;
-	}
+  body {
+    font-family: var(--font-cormorant);
+    @apply bg-deep text-primary antialiased;
+    transition:
+      background-color 0.4s ease,
+      color 0.4s ease;
+  }
 
-	::selection {
-		@apply bg-gold text-primary;
-	}
+  ::selection {
+    @apply bg-gold text-primary;
+  }
 
-	::-webkit-scrollbar {
-		width: 5px;
-	}
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
 
-	::-webkit-scrollbar-thumb {
-		@apply bg-gold rounded-md;
-	}
+  ::-webkit-scrollbar-thumb {
+    @apply bg-gold rounded-md;
+  }
 
-	::-webkit-scrollbar-track {
-		background: var(--deep);
-	}
+  ::-webkit-scrollbar-track {
+    background: var(--deep);
+  }
 }
 
-/* Smooth Theme Transition */
+/* ─────────────────────────────────────────────────────────────
+   4. Smooth Theme Transition
+───────────────────────────────────────────────────────────── */
+
 @layer utilities {
-	*:not(canvas):not(svg):not(svg *) {
-		transition-property: background-color, border-color, color;
-		transition-duration: 0.4s;
-		transition-timing-function: ease;
-	}
+  *:not(canvas):not(svg):not(svg *) {
+    transition-property: background-color, border-color, color;
+    transition-duration: 0.4s;
+    transition-timing-function: ease;
+  }
 }
 
-/* Animations */
+/* ─────────────────────────────────────────────────────────────
+   5. Animations
+───────────────────────────────────────────────────────────── */
+
 @layer utilities {
-	@keyframes spin-slow {
-		to {
-			transform: rotate(360deg);
-		}
-	}
+  @keyframes spin-slow {
+    to {
+      transform: rotate(360deg);
+    }
+  }
 
-	@keyframes float {
-		0%,
-		100% {
-			transform: translateY(0);
-		}
-		50% {
-			transform: translateY(-8px);
-		}
-	}
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
 
-	@keyframes fade-up {
-		from {
-			opacity: 0;
-			transform: translateY(20px);
-		}
-		to {
-			opacity: 1;
-			transform: translateY(0);
-		}
-	}
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 
-	@keyframes toggle-spin {
-		from {
-			transform: rotate(0deg) scale(1);
-		}
-		50% {
-			transform: rotate(180deg) scale(1.2);
-		}
-		to {
-			transform: rotate(360deg) scale(1);
-		}
-	}
+  @keyframes toggle-spin {
+    from {
+      transform: rotate(0deg) scale(1);
+    }
+    50% {
+      transform: rotate(180deg) scale(1.2);
+    }
+    to {
+      transform: rotate(360deg) scale(1);
+    }
+  }
 
-	.animate-spin-slow {
-		animation: spin-slow 80s linear infinite;
-	}
+  .animate-spin-slow {
+    animation: spin-slow 80s linear infinite;
+  }
 
-	.animate-float {
-		animation: float 3s ease-in-out infinite;
-	}
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
 
-	.animate-fade-up {
-		animation: fade-up 0.6s ease both;
-	}
+  .animate-fade-up {
+    animation: fade-up 0.6s ease both;
+  }
 
-	.animate-toggle-spin {
-		animation: toggle-spin 0.5s ease;
-	}
+  .animate-toggle-spin {
+    animation: toggle-spin 0.5s ease;
+  }
 }

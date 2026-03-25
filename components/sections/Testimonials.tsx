@@ -1,57 +1,63 @@
-'use client';
+// import { SectionLabel } from '@/components/common/UI';
+import { YT_SHORTS } from "@/lib/data";
+import Link from "next/link";
+import Button from "../ui/Button";
 
-import { TESTIMONIALS } from '@/lib/Data';
-import { useEffect, useState } from 'react';
+const Testimonials = () => (
+  <section
+    className="relative py-28 px-6 bg-gradient-section-b overflow-hidden"
+    id="testimonials"
+  >
+    <div className="max-w-6xl mx-auto">
+      <div className="text-center mb-16">
+        <p className="mb-5 text-[12px] tracking-[0.3em] font-cinzel text-gold font-semibold">
+          ✦ VOICES FROM THE JOURNEY ✦
+        </p>
 
-const Testimonials = () => {
-	const [active, setActive] = useState(0);
+        <h2 className="mb-2 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
+          Real
+          <span className="text-gold"> Transformations</span>
+        </h2>
+        <p className="max-w-xl mx-auto text-[1.05rem] font-cormorant text-subtle">
+          Watch how SYMC Wellness has touched lives — in people's own words.
+        </p>
+      </div>
 
-	useEffect(() => {
-		const t = setInterval(
-			() => setActive((a) => (a + 1) % TESTIMONIALS.length),
-			5000,
-		);
-		return () => clearInterval(t);
-	}, []);
+      {/* YouTube Shorts grid — vertical 9:16 embeds */}
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+        {YT_SHORTS.filter(Boolean).map((id, i) => (
+          <div key={id} className="group relative flex flex-col">
+            {/* Shorts player — 9:16 aspect */}
+            <div
+              className="relative w-full overflow-hidden border border-gold-12 group-hover:border-gold-40 transition-all duration-300"
+              style={{ paddingBottom: "177.78%" }}
+            >
+              <iframe
+                className="absolute inset-0 w-full h-full"
+                src={`https://www.youtube.com/embed/${id}?loop=1&playlist=${id}&rel=0&modestbranding=1`}
+                title={`Testimonial ${i + 1}`}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                loading="lazy"
+              />
+            </div>
+            {/* Gold accent bottom */}
+            <div className="h-px w-0 bg-gold group-hover:w-full transition-all duration-500" />
+          </div>
+        ))}
+      </div>
 
-	return (
-		<section className='relative py-32 px-6 text-center bg-gradient-section-b'>
-			<div className='max-w-3xl mx-auto'>
-				<p className='mb-12 text-[11px] tracking-[0.3em] font-cinzel text-gold font-semibold'>
-					✦ VOICES FROM THE JOURNEY ✦
-				</p>
-
-				<div className='min-h-[150px]'>
-					<p
-						key={active}
-						className='italic leading-[1.8] font-cormorant text-muted text-[clamp(1.1rem,_2.5vw,_1.5rem)] animate-fade-up'
-					>
-						&quot;{TESTIMONIALS[active].quote}&quot;
-					</p>
-				</div>
-
-				<div className='mt-8'>
-					<div className='text-[13px] font-cinzel text-gold'>
-						{TESTIMONIALS[active].name}
-					</div>
-					<div className='text-[13px] mt-1 font-cormorant text-subtle'>
-						{TESTIMONIALS[active].role}
-					</div>
-				</div>
-
-				<div className='flex justify-center gap-2 mt-10'>
-					{TESTIMONIALS.map((_, i) => (
-						<button
-							key={i}
-							onClick={() => setActive(i)}
-							className={`h-1.5 border-none cursor-pointer transition-all duration-300 ${i === active ? 'w-6 bg-gold' : 'w-1.5 bg-gold-25'}`}
-							aria-label={`Testimonial ${i + 1}`}
-						/>
-					))}
-				</div>
-			</div>
-		</section>
-	);
-};
+      <div className="text-center mt-12">
+        <Link
+          href={process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL ?? "#"}
+          target="_blank"
+          rel="noreferrer"
+        >
+          <Button label="SEE MORE ON YOUTUBE" size="lg" variant="fill" />
+        </Link>
+      </div>
+    </div>
+  </section>
+);
 
 export default Testimonials;

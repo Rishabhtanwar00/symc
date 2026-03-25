@@ -1,89 +1,119 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import SacredCircle from '../common/SacredCircle';
-import Link from 'next/link';
+import { useCallback, useEffect, useState } from "react";
+import Image from "next/image";
+import { ChevronLeftIcon, ChevronRightIcon } from "@/components/common/Icons";
+import { HERO_SLIDES } from "@/lib/data";
+import SacredCircle from "../common/SacredCircle";
+import Button from "../ui/Button";
+
+const DURATION = Number(process.env.NEXT_PUBLIC_HERO_SLIDE_DURATION ?? 10000);
 
 const Hero = () => {
-	const [visible, setVisible] = useState(false);
+  const [active, setActive] = useState(0);
+  const [visible, setVisible] = useState(false);
 
-	useEffect(() => {
-		const t = setTimeout(() => setVisible(true), 100);
-		return () => clearTimeout(t);
-	}, []);
+  const total = HERO_SLIDES.length;
 
-	return (
-		<section className='relative min-h-screen flex items-center justify-center overflow-hidden pt-[88px]'>
-			{/* Radial glow */}
-			<div className='absolute inset-0 bg-hero-glow pointer-events-none' />
+  const goTo = useCallback(
+    (idx: number) => {
+      setActive((idx + total) % total);
+    },
+    [total],
+  );
 
-			{/* Spinning sacred geometry */}
-			<div className='absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2'>
-				<SacredCircle className='opacity-60 h-[700px] max-h-[90vw] w-[700px] max-w-[90vw] animate-spin-slow origin-center' />
-			</div>
+  useEffect(() => {
+    setVisible(true);
+  }, []);
 
-			{/* Content */}
-			<div
-				className={`relative z-10 text-center px-6 max-w-4xl mx-auto transition-all duration-[1400ms] ${visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-[30px]'}`}
-			>
-				{/* Eyebrow */}
-				<div
-					className={`mb-8 inline-flex items-center gap-3 transition-opacity duration-[1800ms] delay-300 ${visible ? 'opacity-100' : 'opacity-0'}`}
-				>
-					<span className='text-[10px] tracking-[0.35em] font-cinzel text-gold font-semibold'>
-						✦ SHREE YOGMAYA MEDITATION CENTRE ✦
-					</span>
-				</div>
+  useEffect(() => {
+    const id = setInterval(() => goTo(active + 1), DURATION);
+    return () => clearInterval(id);
+  }, [active, goTo]);
 
-				{/* Heading */}
-				<h1 className='mb-6 leading-[1.1] tracking-[-0.01em] font-cinzel-deco text-primary text-[clamp(2.8rem,_7vw,_5.5rem)]'>
-					Align With the{' '}
-					<span className='bg-gradient-gold bg-clip-text text-transparent'>
-						Cosmos
-					</span>
-					,<br />
-					Awaken Your Soul
-				</h1>
+  return (
+    <section className="relative h-125 flex items-center justify-center overflow-hidden">
+      <div
+        className="absolute inset-0 flex transition-transform duration-700 ease-in-out"
+        style={{
+          width: `${total * 100}%`,
+          transform: `translateX(-${active * (100 / total)}%)`,
+        }}
+      >
+        {HERO_SLIDES.map((slide, i) => (
+          <div
+            key={i}
+            className="relative h-full shrink-0"
+            style={{ width: `${100 / total}%` }}
+          >
+            {slide.image && (
+              <Image
+                src={slide.image}
+                alt={`Slide ${i + 1}`}
+                fill
+                className="object-cover"
+                priority={i === 0}
+                sizes="100vw"
+              />
+            )}
+            {/* <div
+              className="absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] inset-0 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(ellipse 70% 60% at 50% 60%, #000 0%, transparent 70%)",
+              }}
+            /> */}
+            <div
+              className={`relative top-[50%] translate-y-[-50%] z-10 text-center px-6 max-w-4xl mx-auto transition-all duration-1200 ${
+                visible
+                  ? "opacity-100 translate-y-0"
+                  : "opacity-0 translate-y-8"
+              }`}
+            >
+              <p className="mb-8 text-[12px] tracking-[0.4em] font-cinzel text-gold font-bold">
+                ✦ SYMC WELLNESS · RISHIKESH ✦
+              </p>
 
-				{/* Tagline */}
-				<p
-					className={`mb-12 mx-auto max-w-xl italic leading-[1.8] font-cormorant text-muted text-[clamp(1rem,_2.2vw,_1.25rem)] transition-opacity duration-[1800ms] delay-[600ms] ${visible ? 'opacity-100' : 'opacity-0'}`}
-				>
-					Ancient wisdom meets modern healing — through astrology, meditation,
-					and conscious life guidance at SYMC.
-				</p>
+              <blockquote className="font-cinzel-deco text-white text-[clamp(1.6rem,4.5vw,3.2rem)] leading-[1.15] mb-8 transition-all duration-500">
+                <span className="bg-gradient-gold bg-clip-text text-gold">
+                  {HERO_SLIDES[active].quote.split(" ").slice(0, 4).join(" ")}
+                </span>{" "}
+                {HERO_SLIDES[active].quote.split(" ").slice(4).join(" ")}
+              </blockquote>
+            </div>
 
-				{/* CTAs */}
-				<div
-					className={`flex flex-col sm:flex-row gap-4 justify-center transition-opacity duration-[1800ms] delay-[900ms] ${visible ? 'opacity-100' : 'opacity-0'}`}
-				>
-					<Link
-						href='#'
-						className='px-10 py-4 text-[11px] font-bold tracking-[0.2em] font-cinzel bg-gradient-gold-btn text-deep hover:opacity-85 transition-opacity duration-300'
-					>
-						BEGIN YOUR JOURNEY
-					</Link>
-					<Link
-						href='#'
-						className='px-10 py-4 text-[11px] tracking-[0.2em] font-cinzel
-                       text-gold-80 border border-gold-80
-                       hover:border-gold hover:text-gold
-                       transition-all duration-300'
-					>
-						EXPLORE SERVICES
-					</Link>
-				</div>
-
-				{/* Scroll indicator */}
-				<div className='mt-20 flex flex-col items-center gap-2 opacity-40 animate-float'>
-					<span className='text-[10px] tracking-[0.25em] font-cinzel text-gold'>
-						SCROLL
-					</span>
-					<div className='w-px h-10 bg-gradient-to-b from-gold to-transparent' />
-				</div>
-			</div>
-		</section>
-	);
+            <div className="absolute inset-0 bg-linear-to-b from-bg-deep/90 via-bg-deep/90 to-bg-deepest/90" />
+          </div>
+        ))}
+      </div>
+      <Button
+        icon={<ChevronLeftIcon size={18} />}
+        iconPosition="left"
+        variant="fill"
+        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 px-0 py-0 rounded-full"
+        onClick={() => goTo(active - 1)}
+      />
+      <Button
+        icon={<ChevronRightIcon size={18} />}
+        iconPosition="left"
+        variant="fill"
+        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-10 h-10 px-0 py-0 rounded-full"
+        onClick={() => goTo(active + 1)}
+      />
+      {/* Dots */}
+      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex gap-2">
+        {HERO_SLIDES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            className={`rounded-full transition-all duration-300 cursor-pointer ${
+              i === active ? "w-6 h-1.5 bg-gold" : "w-1.5 h-1.5 bg-gold-25"
+            }`}
+          />
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default Hero;

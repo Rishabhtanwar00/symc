@@ -1,59 +1,109 @@
-import Link from 'next/link';
-import SacredCircle from '../common/SacredCircle';
-import { STATS } from '@/lib/Data';
+import Image from "next/image";
+import Link from "next/link";
+// import { SacredCircle, SectionLabel } from '@/components/common/UI';
+import { STATS } from "@/lib/data";
+import SacredCircle from "../common/SacredCircle";
+import Button from "../ui/Button";
 
 const About = () => {
-	return (
-		<section className='relative py-32 px-6 overflow-hidden bg-deep'>
-			<SacredCircle className='absolute opacity-20 w-[500px] h-[500px] -right-[120px] top-1/2 -translate-y-1/2 pointer-events-none' />
+  const personImage =
+    process.env.NEXT_PUBLIC_ABOUT_PERSON_IMAGE ??
+    "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=80";
 
-			<div className='max-w-6xl mx-auto grid md:grid-cols-2 gap-20 items-center'>
-				<div>
-					<p className='mb-5 text-[11px] tracking-[0.3em] font-cinzel text-gold font-semibold'>
-						✦ OUR STORY ✦
-					</p>
+  return (
+    <section className="relative py-28 px-6 overflow-hidden bg-deep" id="about">
+      {/* Background sacred circle */}
+      <SacredCircle className="absolute opacity-10 w-[500px] h-[500px] -left-[150px] top-1/2 -translate-y-1/2 pointer-events-none" />
 
-					<h2 className='mb-8 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,_3.5vw,_2.8rem)]'>
-						Where Stars Meet <br />
-						<span className='text-gold'>Stillness</span>
-					</h2>
+      <div className="max-w-6xl mx-auto">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* ── Left: Person image ── */}
+          <div className="relative flex justify-center lg:justify-start">
+            {/* Gold frame accent */}
+            <div className="relative">
+              <div className="absolute -top-3 -left-3 w-full h-full border-2 border-gold-25" />
+              <div className="absolute -bottom-3 -right-3 w-full h-full border-2 border-gold-20" />
+              <div className="relative w-[320px] h-[420px] md:w-[380px] md:h-[500px] overflow-hidden">
+                <Image
+                  src={personImage}
+                  alt="Shweta Vij — Healer, Mentor, Life Coach"
+                  fill
+                  className="object-cover "
+                  sizes="(max-width: 768px) 320px, 380px"
+                />
+                {/* Bottom name plate */}
+                <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/45 via-black/30 to-transparent px-6 py-5">
+                  <p className="font-cinzel-deco text-gold text-xl font-bold tracking-[0.15em]">
+                    Shweta Vij
+                  </p>
+                  <p className="font-cormorant text-white text-[14px] italic tracking-wide mt-0.5">
+                    Healer · Mentor · Life Coach
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
 
-					<p className='mb-6 italic text-[1.1rem] leading-[1.9] font-cormorant text-muted'>
-						SYMC was founded on a simple belief — that the universe speaks to
-						each of us, and that true healing begins when we learn to listen.
-						Our centre blends Vedic astrology, yogic meditation, and
-						heart-centred life coaching into a unified path of awakening.
-					</p>
+          {/* ── Right: Content ── */}
+          <div>
+            <p className="mb-5 text-[12px] tracking-[0.3em] font-cinzel text-gold font-semibold">
+              ✦ ABOUT SYMC WELLNESS ✦
+            </p>
 
-					<p className='text-[1.1rem] leading-[1.9] font-cormorant text-subtle'>
-						Rooted in ancient Indian wisdom and guided by compassion, we walk
-						with you — from confusion to clarity, from anxiety to peace, from
-						seeking to becoming.
-					</p>
+            <h2 className="mb-8 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
+              Where Spirituality Meets
+              <span className="text-gold"> Wellness</span>
+            </h2>
 
-					<Link
-						href='#'
-						className='mt-10 inline-flex items-center gap-3 text-[11px] tracking-[0.2em] font-cinzel text-gold hover:opacity-80 transition-opacity duration-300'
-					>
-						DISCOVER OUR PHILOSOPHY <span>→</span>
-					</Link>
-				</div>
+            <p className="mb-5 text-[1.05rem] leading-[1.9] font-lora text-muted">
+              SYMC Wellness brings together Meditation, Astrology, Spiritual
+              Products, and Vastu guidance to support your journey toward inner
+              balance and higher consciousness.
+            </p>
 
-				<div className='grid grid-cols-2 gap-px border border-gold-12 bg-gold-12'>
-					{STATS.map((s) => (
-						<div key={s.label} className='p-10 flex flex-col gap-3 bg-deep'>
-							<div className='leading-none font-cinzel-deco text-gold text-[2.2rem]'>
-								{s.num}+
-							</div>
-							<div className='text-[0.85rem] tracking-[0.05em] font-cormorant text-subtle'>
-								{s.label}
-							</div>
-						</div>
-					))}
-				</div>
-			</div>
-		</section>
-	);
+            <p className="mb-8 text-[1rem] leading-[1.85] font-lora text-subtle">
+              Based in Rishikesh, we offer authentic spiritual tools and
+              holistic services designed to elevate your energy and transform
+              your life. Every session, every product, every reading is infused
+              with 20+ years of genuine healing experience and deep devotion to
+              the path.
+            </p>
+            <Link href={"/about"}>
+              <Button label="OUR PHILOSOPHY →" size="lg" />
+            </Link>
+          </div>
+        </div>
+
+        {/* ── Stats Row ── */}
+        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-2">
+          {STATS.map((s) => (
+            <div
+              key={s.label}
+              className="bg-surface border border-gold-30 p-8 flex flex-col items-center text-center gap-3 group"
+            >
+              {/* Icon / emoji */}
+              <span
+                className="text-3xl leading-none"
+                style={{ filter: "sepia(1) saturate(2) hue-rotate(5deg)" }}
+              >
+                <s.icon size={28} />
+              </span>
+              <div
+                className="font-cinzel-deco text-gold leading-none"
+                style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)" }}
+              >
+                {s.num}
+                <span className="text-gold-dark">{s.suffix}</span>
+              </div>
+              <div className="text-[11px] tracking-widest font-cinzel text-subtle font-semibold uppercase">
+                {s.label}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 };
 
 export default About;
