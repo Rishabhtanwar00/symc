@@ -3,7 +3,7 @@ interface TextareaProps {
   placeholder: string;
   required?: boolean;
   value?: string;
-  onChange?: () => void;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
   className?: string;
 }
 

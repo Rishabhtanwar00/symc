@@ -47,12 +47,11 @@ const Button = ({
   return (
     <button
       onClick={onClick}
-      className={`inline-flex items-center justify-center gap-2 font-cinzel font-semibold tracking-[0.18em] cursor-pointer transition-all duration-300
-       ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 font-cinzel font-semibold tracking-[0.18em] cursor-pointer transition-all duration-300 ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
       type={type}
     >
       {icon && iconPosition === "left" && <span>{icon}</span>}
-      {label && <span className="mt-[2px]">{label}</span>}
+      {label && <span className="mt-0.5">{label}</span>}
       {icon && iconPosition === "right" && <span>{icon}</span>}
     </button>
   );

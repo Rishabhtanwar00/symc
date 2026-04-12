@@ -1,8 +1,13 @@
 import Link from "next/link";
-// import { SacredCircle, SectionLabel } from '@/components/common/UI';
-import { SERVICES } from "@/lib/data";
 import SacredCircle from "../common/SacredCircle";
 import Button from "../ui/Button";
+import SectionLabel from "../common/SectionLabel";
+import { SERVICES_FULL } from "../services/ServicesData";
+import dynamic from "next/dynamic";
+// import InfiniteSlider from "../common/InfiniteSlider";
+const InfiniteSlider = dynamic(() => import("../common/InfiniteSlider"), {
+  ssr: false,
+});
 
 const Services = () => (
   <section
@@ -14,24 +19,31 @@ const Services = () => (
 
     <SacredCircle className="absolute opacity-30 w-150 h-150 right-[250px] bottom-20 pointer-events-none animate-spin-slow" />
 
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-8xl mx-auto">
       <div className="text-center mb-16">
-        <p className="mb-5 text-[12px] tracking-[0.3em] font-cinzel text-gold font-semibold">
-          ✦ WHAT WE OFFER ✦
-        </p>
+        <SectionLabel label="WHAT WE OFFER" />
 
         <h2 className="mb-2 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
           Sacred
           <span className="text-gold"> Pathways</span>
         </h2>
-        <p className="max-w-xl mx-auto text-[1.05rem] font-cormorant text-subtle">
+        <p className="max-w-xl mx-auto text-[1.05rem] font-cormorant text-subtle italic">
           Doorways to self-discovery, aligned with ancient Yogic and Vedic
           traditions.
         </p>
       </div>
-
-      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
-        {SERVICES.map((s, i) => (
+      <InfiniteSlider
+        label="Our Services"
+        title="Sacred Pathways"
+        slidesPerView={{ sm: 1, md: 2, lg: 4 }}
+        gap={20}
+        autoplay={4500}
+        showArrows
+        showDots
+        showPlayPause={false}
+        arrowStyle="outside"
+      >
+        {SERVICES_FULL.map((s) => (
           <Link
             key={s.id}
             href={`/services#${s.id}`}
@@ -49,13 +61,13 @@ const Services = () => (
               <div className="text-[26px] leading-none text-gold mb-3">
                 {s.icon}
               </div>
-              <h3 className="text-[14px] tracking-[0.06em] font-cinzel font-semibold text-muted mb-2">
+              <h3 className="text-[12px] tracking-[0.06em] font-cinzel-deco text-muted mb-2">
                 {s.title}
               </h3>
-              <p className=" text-[0.95rem] leading-[1.7] font-lora text-subtle flex-1">
+              <p className=" text-[0.95rem] leading-[1.7] font-cormorant text-subtle flex-1">
                 {s.short}
               </p>
-              <div className="mt-4 text-[9px] tracking-[0.25em] font-lora font-semibold italic text-gold opacity-80">
+              <div className="mt-4 text-[9px] tracking-[0.25em] font-cormorant font-semibold italic text-gold opacity-80">
                 {s.tag}
               </div>
               <div className="mt-3 flex items-center gap-2 text-[10px] tracking-[0.15em] font-cinzel text-gold">
@@ -67,7 +79,7 @@ const Services = () => (
             </div>
           </Link>
         ))}
-      </div>
+      </InfiniteSlider>
 
       <div className="text-center mt-12">
         <Link href={"/services"}>

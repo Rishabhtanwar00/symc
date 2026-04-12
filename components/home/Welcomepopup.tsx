@@ -100,14 +100,15 @@ const WelcomePopup = () => {
             </h2>
 
             <p className="font-cormorant text-muted italic text-[15px] mb-4 text-center">
-              Share your details and our wellness experts will connect with you.
+              Share your details and our wellness experts will connect with you
+              shortly to guide you toward balance, clarity, and well-being.
             </p>
 
             {sent ? (
               <div className="flex-1 flex flex-col items-center justify-center gap-4 text-center">
                 <span className="text-4xl">🙏</span>
                 <p className="font-cinzel text-gold text-[12px] tracking-[0.18em]">
-                  NAMASTE — WE'LL BE IN TOUCH
+                  NAMASTE - WE'LL BE IN TOUCH
                 </p>
               </div>
             ) : (
@@ -115,25 +116,25 @@ const WelcomePopup = () => {
                 <Input
                   required={true}
                   value={form.name}
-                  onChange={() => set("name")}
+                  onChange={set("name")}
                   placeholder="Your Name *"
                 />
                 <Input
                   required={true}
                   value={form.email}
-                  onChange={() => set("email")}
+                  onChange={set("email")}
                   placeholder="Email Address *"
                 />
                 <Input
                   required={true}
                   value={form.phone}
-                  onChange={() => set("phone")}
+                  onChange={set("phone")}
                   placeholder="Phone Number *"
                 />
                 <Textarea
                   required={true}
                   value={form.message}
-                  onChange={() => set("message")}
+                  onChange={set("message")}
                   placeholder="Tell us how we can make your life better…"
                   className={`${inputClass} resize-none`}
                 />

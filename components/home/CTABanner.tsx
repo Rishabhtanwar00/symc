@@ -7,6 +7,7 @@ import SacredCircle from "../common/SacredCircle";
 import Button from "../ui/Button";
 import Input from "../ui/Input";
 import Textarea from "../ui/Textarea";
+import SectionLabel from "../common/SectionLabel";
 
 const CTABanner = () => {
   const [form, setForm] = useState({
@@ -32,7 +33,7 @@ const CTABanner = () => {
   };
 
   const inputClass =
-    "w-full bg-transparent border-b border-gold-25 py-3 text-[14px] font-lora text-primary placeholder:text-subtle focus:outline-none focus:border-gold transition-colors duration-300";
+    "w-full bg-transparent border-b border-gold-25 py-3 text-[14px] font-cormorant text-primary placeholder:text-subtle focus:outline-none focus:border-gold transition-colors duration-300";
 
   return (
     <section
@@ -45,15 +46,13 @@ const CTABanner = () => {
       <SacredCircle className="absolute opacity-10 w-[500px] h-[500px] -right-[200px] bottom-0 pointer-events-none" />
 
       <div className="relative z-10 max-w-2xl mx-auto">
-        <p className="mb-5 text-[12px] tracking-[0.3em] font-cinzel text-gold font-semibold">
-          ✦ GET IN TOUCH ✦
-        </p>
+        <SectionLabel label="GET IN TOUCH" />
 
         <h2 className="mb-2 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
           Begin Your
           <span className="text-gold"> Transformation</span>
         </h2>
-        <p className="mb-12 text-[1.05rem] leading-[1.8] font-cormorant text-subtle">
+        <p className="mb-12 text-[1.05rem] leading-[1.8] font-cormorant text-subtle italic">
           Share what you seek. Shweta will personally reach out to guide you
           toward the right path.
         </p>
@@ -62,9 +61,9 @@ const CTABanner = () => {
           <div className="py-12 flex flex-col items-center gap-4">
             <span className="text-4xl">🙏</span>
             <p className="font-cinzel text-gold tracking-[0.2em] text-sm">
-              NAMASTE — WE'LL BE IN TOUCH SOON
+              NAMASTE - WE'LL BE IN TOUCH SOON
             </p>
-            <p className="font-lora text-subtle italic">
+            <p className="font-cormorant text-subtle italic">
               Your enquiry has been received with gratitude.
             </p>
           </div>
@@ -77,13 +76,13 @@ const CTABanner = () => {
               <Input
                 required={true}
                 value={form.name}
-                onChange={() => set("name")}
+                onChange={set("name")}
                 placeholder="Your Name *"
               />
               <Input
                 required={true}
                 value={form.city}
-                onChange={() => set("city")}
+                onChange={set("city")}
                 placeholder="City / State *"
               />
             </div>
@@ -92,13 +91,13 @@ const CTABanner = () => {
               <Input
                 required={true}
                 value={form.phone}
-                onChange={() => set("phone")}
+                onChange={set("phone")}
                 placeholder="Phone Number *"
               />
               <Input
                 required={true}
                 value={form.email}
-                onChange={() => set("email")}
+                onChange={set("email")}
                 type="email"
                 placeholder="Email Address *"
               />
@@ -106,7 +105,7 @@ const CTABanner = () => {
             <Textarea
               required={true}
               value={form.message}
-              onChange={() => set("message")}
+              onChange={set("message")}
               placeholder="What change do you want in your life? (Tell us more…)"
             />
 

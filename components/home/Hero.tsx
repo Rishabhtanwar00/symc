@@ -6,6 +6,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@/components/common/Icons";
 import { HERO_SLIDES } from "@/lib/data";
 import SacredCircle from "../common/SacredCircle";
 import Button from "../ui/Button";
+import SectionLabel from "../common/SectionLabel";
 
 const DURATION = Number(process.env.NEXT_PUBLIC_HERO_SLIDE_DURATION ?? 10000);
 
@@ -70,9 +71,7 @@ const Hero = () => {
                   : "opacity-0 translate-y-8"
               }`}
             >
-              <p className="mb-8 text-[12px] tracking-[0.4em] font-cinzel text-gold font-bold">
-                ✦ SYMC WELLNESS · RISHIKESH ✦
-              </p>
+              <SectionLabel label="SYMC WELLNESS · RISHIKESH" />
 
               <blockquote className="font-cinzel-deco text-white text-[clamp(1.6rem,4.5vw,3.2rem)] leading-[1.15] mb-8 transition-all duration-500">
                 <span className="bg-gradient-gold bg-clip-text text-gold">

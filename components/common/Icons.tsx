@@ -1,3 +1,5 @@
+import { useId } from "react";
+
 // ─── Theme Icons ──────────────────────────────────────────────────────────────
 export const SunIcon = () => (
   <svg
@@ -189,7 +191,7 @@ type IconProps = {
 };
 
 export const StarIcon = ({ size = 24 }: IconProps) => {
-  const id = "starGrad-" + Math.random();
+  const id = useId();
 
   return (
     <svg width={size} height={size} viewBox="0 0 24 24">
@@ -211,7 +213,7 @@ export const StarIcon = ({ size = 24 }: IconProps) => {
 };
 
 export const HeartIcon = ({ size = 24 }: IconProps) => {
-  const id = "heartGrad-" + Math.random();
+  const id = useId();
 
   return (
     <svg width={size} height={size} viewBox="0 0 24 24">
@@ -235,7 +237,7 @@ export const HeartIcon = ({ size = 24 }: IconProps) => {
 };
 
 export const SparkIcon = ({ size = 24 }: IconProps) => {
-  const id = "sparkGrad-" + Math.random();
+  const id = useId();
 
   return (
     <svg width={size} height={size} viewBox="0 0 24 24">
@@ -257,7 +259,7 @@ export const SparkIcon = ({ size = 24 }: IconProps) => {
 };
 
 export const CircleFlowIcon = ({ size = 24 }: IconProps) => {
-  const id = "flowGrad-" + Math.random();
+  const id = useId();
 
   return (
     <svg width={size} height={size} viewBox="0 0 24 24">

@@ -15,17 +15,17 @@ const TopBar = () => {
   const ytUrl = process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL ?? "#";
 
   return (
-    <div className="bg-dark border-b border-gold-08 px-6 py-2 hidden md:block">
+    <div className="bg-black border-b border-gold-08 px-6 py-2 hidden md:block">
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         {/* phone */}
         <Link
           href={`tel:${phone}`}
-          className="flex items-center gap-2 text-[12px] font-lora text-light tracking-wide hover:text-gold transition-colors duration-300"
+          className="flex items-center gap-2 text-[12px] font-cormorant text-light tracking-wide hover:text-gold transition-colors duration-300"
         >
           <PhoneIcon />
           <span>
             Talk to the experts:{" "}
-            <strong className="text-gold font-semibold font-roboto">
+            <strong className="text-gold font-semibold font-cinzel">
               {phone}
             </strong>
           </span>
@@ -35,7 +35,7 @@ const TopBar = () => {
         <div className="flex items-center gap-5">
           <Link
             href={`mailto:${email}`}
-            className="flex items-center gap-1.5 text-[12px] font-lora text-light tracking-wide hover:text-gold transition-colors duration-300"
+            className="flex items-center gap-1.5 text-[14px] font-cormorant text-light tracking-wide hover:text-gold transition-colors duration-300 font-semibold"
           >
             <MailIcon />
             <span className="text-gold">{email}</span>

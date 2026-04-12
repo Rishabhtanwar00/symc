@@ -4,6 +4,7 @@ import Link from "next/link";
 import { STATS } from "@/lib/data";
 import SacredCircle from "../common/SacredCircle";
 import Button from "../ui/Button";
+import SectionLabel from "../common/SectionLabel";
 
 const About = () => {
   const personImage =
@@ -26,7 +27,7 @@ const About = () => {
               <div className="relative w-[320px] h-[420px] md:w-[380px] md:h-[500px] overflow-hidden">
                 <Image
                   src={personImage}
-                  alt="Shweta Vij — Healer, Mentor, Life Coach"
+                  alt="Shweta Vij - Healer, Mentor, Life Coach"
                   fill
                   className="object-cover "
                   sizes="(max-width: 768px) 320px, 380px"
@@ -46,22 +47,20 @@ const About = () => {
 
           {/* ── Right: Content ── */}
           <div>
-            <p className="mb-5 text-[12px] tracking-[0.3em] font-cinzel text-gold font-semibold">
-              ✦ ABOUT SYMC WELLNESS ✦
-            </p>
+            <SectionLabel label="ABOUT SYMC WELLNESS" />
 
             <h2 className="mb-8 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
               Where Spirituality Meets
               <span className="text-gold"> Wellness</span>
             </h2>
 
-            <p className="mb-5 text-[1.05rem] leading-[1.9] font-lora text-muted">
+            <p className="mb-5 text-[1.05rem] leading-[1.9] font-cormorant text-muted">
               SYMC Wellness brings together Meditation, Astrology, Spiritual
               Products, and Vastu guidance to support your journey toward inner
               balance and higher consciousness.
             </p>
 
-            <p className="mb-8 text-[1rem] leading-[1.85] font-lora text-subtle">
+            <p className="mb-8 text-[1rem] leading-[1.85] font-cormorant text-subtle">
               Based in Rishikesh, we offer authentic spiritual tools and
               holistic services designed to elevate your energy and transform
               your life. Every session, every product, every reading is infused

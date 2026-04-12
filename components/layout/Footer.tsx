@@ -34,7 +34,7 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <p className="italic text-[0.95rem] leading-[1.8] max-w-[300px] font-lora text-subtle mb-6">
+            <p className="italic text-[0.95rem] leading-[1.8] max-w-[300px] font-cormorant text-subtle mb-6">
               A sacred space where the stars, breath, and self converge into the
               art of living well. Based in Rishikesh.
             </p>
@@ -43,13 +43,13 @@ const Footer = () => {
             <div className="flex flex-col gap-2 mb-6">
               <Link
                 href={`tel:${phone}`}
-                className="flex items-center gap-2 text-[12px] tracking-[0.15em] font-lora text-subtle hover:text-gold-80 transition-colors duration-300"
+                className="flex items-center gap-2 text-[12px] tracking-[0.15em] font-cinzel text-subtle hover:text-gold-80 transition-colors duration-300"
               >
                 <PhoneIcon /> {phone}
               </Link>
               <Link
                 href={`mailto:${email}`}
-                className="flex items-center gap-2 text-[12px] tracking-[0.1em] font-lora text-subtle hover:text-gold-80 transition-colors duration-300"
+                className="flex items-center gap-2 text-[12px] tracking-[0.1em] font-cinzel text-subtle hover:text-gold-80 transition-colors duration-300"
               >
                 <MailIcon /> {email}
               </Link>
@@ -105,7 +105,7 @@ const Footer = () => {
                   <li key={l}>
                     <Link
                       href="#"
-                      className="text-[0.95rem] font-lora text-subtle hover:text-gold-80 transition-colors duration-300"
+                      className="text-[0.95rem] font-cormorant text-subtle hover:text-gold-80 transition-colors duration-300"
                     >
                       {l}
                     </Link>
@@ -119,8 +119,8 @@ const Footer = () => {
         <Divider />
 
         <div className="mt-10 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[12px] font-lora text-faint">
-            © 2025 SYMC Wellness — Shree Yogmaya Meditation Centre, Rishikesh.
+          <p className="text-[12px] font-cormorant text-faint">
+            © 2025 SYMC Wellness - Shree Yogmaya Meditation Centre, Rishikesh.
             All rights reserved.
           </p>
           <div className="flex gap-6">
@@ -128,7 +128,7 @@ const Footer = () => {
               <Link
                 key={l}
                 href="#"
-                className="text-[12px] font-lora text-faint nav-link transition-colors duration-300"
+                className="text-[12px] font-cormorant text-faint nav-link transition-colors duration-300"
               >
                 {l}
               </Link>

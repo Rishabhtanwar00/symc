@@ -3,29 +3,43 @@ import Link from "next/link";
 // import { SectionLabel } from '@/components/common/UI';
 import { PRODUCTS } from "@/lib/data";
 import Button from "../ui/Button";
+import SectionLabel from "../common/SectionLabel";
+import dynamic from "next/dynamic";
+// import InfiniteSlider from "../common/InfiniteSlider";
+const InfiniteSlider = dynamic(() => import("../common/InfiniteSlider"), {
+  ssr: false,
+});
 
 const Products = () => (
   <section
     className="relative py-28 px-6 bg-deep overflow-hidden"
     id="products"
   >
-    <div className="max-w-6xl mx-auto">
+    <div className="max-w-8xl mx-auto">
       <div className="text-center mb-16">
-        <p className="mb-5 text-[12px] tracking-[0.3em] font-cinzel text-gold font-semibold">
-          ✦ SPIRITUAL STORE ✦
-        </p>
+        <SectionLabel label="SPIRITUAL STORE" />
 
         <h2 className="mb-2 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
           Sacred
           <span className="text-gold"> Products</span>
         </h2>
-        <p className="max-w-xl mx-auto text-[1.05rem] font-cormorant text-subtle">
+        <p className="max-w-xl mx-auto text-[1.05rem] font-cormorant text-subtle italic">
           Carefully sourced, energetically cleansed and blessed tools to support
           your practice.
         </p>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+      <InfiniteSlider
+        label="Our Services"
+        title="Sacred Pathways"
+        slidesPerView={{ sm: 1, md: 2, lg: 4 }}
+        gap={20}
+        autoplay={4500}
+        showArrows
+        showDots
+        showPlayPause={false}
+        arrowStyle="outside"
+      >
         {PRODUCTS.map((p) => (
           <div
             key={p.id}
@@ -52,7 +66,7 @@ const Products = () => (
               <h3 className="font-cinzel text-muted font-semibold text-[14px] tracking-[0.05em]">
                 {p.name}
               </h3>
-              <p className="font-lora text-subtle text-[13px] italic leading-relaxed flex-1">
+              <p className="font-cormorant text-subtle text-[13px] italic leading-relaxed flex-1">
                 {p.desc}
               </p>
               <div className="flex items-center justify-between mt-3">
@@ -78,7 +92,7 @@ const Products = () => (
             </div>
           </div>
         ))}
-      </div>
+      </InfiniteSlider>
 
       <div className="text-center mt-12">
         <Link href={"/products"}>

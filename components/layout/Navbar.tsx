@@ -3,10 +3,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import ThemeToggle from "@/components/common/ThemeToggle";
-import { SERVICES_DROPDOWN_OPTIONS, NAV_LINKS } from "@/lib/data";
+import { NAV_LINKS } from "@/lib/data";
 import Dropdown from "../ui/Dropdown";
 import Button from "../ui/Button";
 import { useRouter } from "next/navigation";
+import { SERVICES_FULL } from "../services/ServicesData";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -22,7 +23,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? "bg-nav-scrolled backdrop-blur-lg border-b border-gold-12" : "bg-transparent"}`}
+      className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "bg-nav-scrolled backdrop-blur-lg border-b border-gold-12" : "bg-transparent"}`}
     >
       <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between gap-8">
         {/* ── Logo ── */}
@@ -46,13 +47,13 @@ const Navbar = () => {
                 key={link.label}
                 label={link.label}
                 href={link.href}
-                options={SERVICES_DROPDOWN_OPTIONS}
+                options={SERVICES_FULL}
               />
             ) : (
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-[11px] font-lora tracking-[0.12em] hover:text-gold transition-colors duration-300"
+                className="text-[11px] font-cormorant font-semibold tracking-[0.12em] hover:text-gold transition-colors duration-100"
               >
                 {link.label.toUpperCase()}
               </Link>
@@ -100,13 +101,13 @@ const Navbar = () => {
                 key={link.label}
                 label={link.label}
                 href={link.href}
-                options={SERVICES_DROPDOWN_OPTIONS}
+                options={SERVICES_FULL}
               />
             ) : (
               <Link
                 key={link.label}
                 href={link.href}
-                className="nav-link text-[12px] font-lora tracking-[0.12em] transition-colors duration-300"
+                className="nav-link text-[12px] font-cormorant tracking-[0.12em] transition-colors duration-300"
               >
                 {link.label.toUpperCase()}
               </Link>

@@ -48,7 +48,7 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "SYMC Wellness — Shree Yogmaya Meditation Centre",
+  title: "SYMC Wellness - Shree Yogmaya Meditation Centre",
   description:
     "Where spirituality meets wellness. Meditation, Astrology, Life Coaching, Vastu and Spiritual Products. Based in Rishikesh.",
   keywords: [
@@ -78,7 +78,7 @@ export default function RootLayout({
           {/* Header (TopBar + Navbar) is fixed, present on all routes */}
           <Header />
           {/* Page-specific content */}
-          {children}
+          <div className="pt-[65px] md:pt-[100px]">{children}</div>
           {/* Footer is present on all routes */}
           <Footer />
         </ThemeProvider>

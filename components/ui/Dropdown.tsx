@@ -39,7 +39,7 @@ const Dropdown = ({ label, href, options }: DropdownProps) => {
     >
       <Link
         href={href}
-        className="text-[11px] font-lora tracking-[0.12em] hover:text-gold transition-colors duration-300 flex items-center justify-center gap-1"
+        className="text-[11px] font-cormorant font-semibold  tracking-[0.12em] hover:text-gold transition-colors duration-100 flex items-center justify-center gap-1"
       >
         {label.toUpperCase()}
         <span>
@@ -53,7 +53,7 @@ const Dropdown = ({ label, href, options }: DropdownProps) => {
 
       {/* Dropdown */}
       {dropOpen && (
-        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-60 z-50">
+        <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-64 z-50">
           <div className="bg-deepest border border-gold-12 shadow-2xl">
             <div className="h-px bg-linear-to-r from-transparent via-gold to-transparent" />
             <div className="py-3">
@@ -62,7 +62,7 @@ const Dropdown = ({ label, href, options }: DropdownProps) => {
                   key={option.id}
                   href={`${href}#${option.id}`}
                   onClick={() => setDropOpen(false)}
-                  className="flex items-center gap-3 px-4 py-2.5 text-[12px] font-lora text-subtle hover:text-gold transition-colors duration-300 group"
+                  className="flex items-center gap-3 px-4 py-2 text-[14px] font-cormorant font-semibold text-subtle hover:text-gold transition-colors duration-300 group"
                 >
                   <span className="text-gold text-base leading-none">
                     {option.icon}
