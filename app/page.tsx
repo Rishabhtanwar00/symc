@@ -8,8 +8,6 @@ import Products from "@/components/home/Products";
 import Testimonials from "@/components/home/Testimonials";
 import CTABanner from "@/components/home/CTABanner";
 import WelcomePopup from "@/components/home/Welcomepopup";
-import AboutMaster from "@/components/home/AboutMaster";
-import AboutSYMC from "@/components/home/AboutSYMC";
 
 export default function HomePage() {
   return (
@@ -20,8 +18,7 @@ export default function HomePage() {
 
       <div>
         <Hero />
-        <AboutMaster />
-        <AboutSYMC />
+        <About />
         <Services />
         <Products />
         <Testimonials />
