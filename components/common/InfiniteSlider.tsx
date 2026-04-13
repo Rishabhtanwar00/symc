@@ -177,18 +177,30 @@ const InfiniteSlider = ({
   // translateX(calc(idx * -(var(--sw) * 1px + gap * 1px) + dragDx * 1px))
   const tx = `calc(${idx} * calc(var(--sw, 0) * -1px - ${gap}px) + ${dragDx}px)`;
 
+  // ── Autoplay reset key — increments on every MANUAL navigation ──────────
+  // Including it in the autoplay useEffect dependency means the interval is
+  // torn down and restarted from zero every time the user clicks prev/next
+  // or a dot, so the next auto-advance is always a full interval away.
+  const [resetKey, setResetKey] = useState(0);
+  const bumpReset = useCallback(() => setResetKey((k) => k + 1), []);
+
   // ── Navigate ─────────────────────────────────────────────────────────────
-  const go = useCallback((dir: 1 | -1) => {
-    setDoAnim(true);
-    setIdx((i) => i + dir);
-  }, []);
+  const go = useCallback(
+    (dir: 1 | -1, manual = false) => {
+      setDoAnim(true);
+      setIdx((i) => i + dir);
+      if (manual) bumpReset(); // reset autoplay timer on user action
+    },
+    [bumpReset],
+  );
 
   const goTo = useCallback(
     (realIdx: number) => {
       setDoAnim(true);
       setIdx(clones + realIdx);
+      bumpReset(); // reset autoplay timer on dot click
     },
-    [clones],
+    [clones, bumpReset],
   );
 
   // ── Seamless jump after transition ends ──────────────────────────────────
@@ -214,11 +226,15 @@ const InfiniteSlider = ({
   }, [doAnim]);
 
   // ── Autoplay ─────────────────────────────────────────────────────────────
+  // Depends on `resetKey` — so every manual navigation cancels the old
+  // interval and starts a fresh one, giving the user a full interval of
+  // breathing room before the next auto-advance.
   useEffect(() => {
     if (!autoplay || !playing) return;
     const id = setInterval(() => go(1), autoplay as number);
     return () => clearInterval(id);
-  }, [autoplay, playing, go]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [autoplay, playing, resetKey]); // ← resetKey is the key addition
 
   // ── Drag / Swipe ─────────────────────────────────────────────────────────
   const startDrag = (x: number) => {
@@ -233,8 +249,9 @@ const InfiniteSlider = ({
   const endDrag = () => {
     if (!dragging) return;
     setDragging(false);
-    if (dragDx < -60) go(1);
-    else if (dragDx > 60) go(-1);
+    if (dragDx < -60)
+      go(1, true); // manual — reset timer
+    else if (dragDx > 60) go(-1, true); // manual — reset timer
     setDragDx(0);
     if (autoplay) setPlaying(true);
   };
@@ -299,14 +316,14 @@ const InfiniteSlider = ({
         {showArrows && arrowStyle === "inside" && (
           <>
             <button
-              onClick={() => go(-1)}
+              onClick={() => go(-1, true)}
               aria-label="Previous"
               className="absolute left-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center border border-gold-25 text-gold btn-ghost transition-all duration-300"
             >
               <PrevIcon />
             </button>
             <button
-              onClick={() => go(1)}
+              onClick={() => go(1, true)}
               aria-label="Next"
               className="absolute right-2 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center border border-gold-25 text-gold btn-ghost transition-all duration-300"
             >
@@ -320,16 +337,16 @@ const InfiniteSlider = ({
       {showArrows && arrowStyle === "outside" && (
         <>
           <button
-            onClick={() => go(-1)}
+            onClick={() => go(-1, true)}
             aria-label="Previous"
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-gold-25 text-gold btn-ghost transition-all duration-300 cursor-pointer"
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-gold-25 text-gold btn-ghost transition-all duration-300"
           >
             <PrevIcon />
           </button>
           <button
-            onClick={() => go(1)}
+            onClick={() => go(1, true)}
             aria-label="Next"
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-gold-25 text-gold btn-ghost transition-all duration-300 cursor-pointer"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 flex items-center justify-center border border-gold-25 text-gold btn-ghost transition-all duration-300"
           >
             <NextIcon />
           </button>
@@ -343,7 +360,7 @@ const InfiniteSlider = ({
             <button
               onClick={() => setPlaying((p) => !p)}
               aria-label={playing ? "Pause" : "Play"}
-              className="w-7 h-7 flex items-center justify-center border border-gold-25 text-gold btn-ghost transition-all duration-300 shrink-0 cursor-pointer"
+              className="w-7 h-7 flex items-center justify-center border border-gold-25 text-gold btn-ghost transition-all duration-300 shrink-0"
             >
               {playing ? <PauseIcon /> : <PlayIcon />}
             </button>
@@ -392,7 +409,7 @@ const InfiniteSlider = ({
           }}
         >
           <div
-            key={`${idx}-play`}
+            key={`${idx}-${resetKey}-play`}
             style={{
               height: "100%",
               backgroundColor: "var(--color-gold)",
