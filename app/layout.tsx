@@ -5,6 +5,8 @@ import {
   Cormorant_Garamond,
   Roboto,
   Lora,
+  Playfair_Display,
+  Inter,
 } from "next/font/google";
 import "../styles/globals.css";
 import { ThemeProvider } from "@/lib/ThemeContext";
@@ -33,10 +35,10 @@ const cormorantGaramond = Cormorant_Garamond({
   display: "swap",
 });
 
-const roboto = Roboto({
+const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
-  variable: "--font-roboto-var",
+  variable: "--font-inter-var",
   display: "swap",
 });
 
@@ -44,6 +46,13 @@ const lora = Lora({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   variable: "--font-lora-var",
+  display: "swap",
+});
+
+const playfairDisplay = Playfair_Display({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-playfair-var",
   display: "swap",
 });
 
@@ -71,7 +80,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="dark"
-      className={`${cinzel.variable} ${cinzelDecorative.variable} ${cormorantGaramond.variable} ${roboto.variable} ${lora.variable}`}
+      className={`${cinzel.variable} ${cinzelDecorative.variable} ${cormorantGaramond.variable} ${inter.variable} ${lora.variable} ${playfairDisplay.variable}`}
     >
       <body>
         <ThemeProvider>

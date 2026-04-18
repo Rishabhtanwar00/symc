@@ -18,7 +18,7 @@ const AboutHero = () => (
       <SectionLabel label="RISHIKESH · INDIA · EST. 1999" />
 
       <h1
-        className="font-cinzel-deco text-primary leading-[1.1] mb-6"
+        className="font-playfair text-primary leading-[1.1] mb-6"
         style={{ fontSize: "clamp(2.4rem, 6vw, 4.5rem)" }}
       >
         Where Spirituality
@@ -29,7 +29,7 @@ const AboutHero = () => (
       </h1>
 
       <p
-        className="font-cormorant text-muted italic leading-[1.9] max-w-2xl mx-auto mb-10"
+        className="font-inter text-muted italic leading-[1.9] max-w-2xl mx-auto mb-10"
         style={{ fontSize: "clamp(1rem, 2vw, 1.2rem)" }}
       >
         Rooted in the sacred energy of Rishikesh and Maa Ganga, SYMC Wellness
@@ -50,10 +50,10 @@ const AboutHero = () => (
             key={s.label}
             className="flex items-center gap-2 px-5 py-2.5 border border-gold-20 bg-deep/40"
           >
-            <span className="font-cinzel-deco text-gold text-base leading-none">
+            <span className="font-playfair text-gold text-base leading-none">
               {s.val}
             </span>
-            <span className="font-cormorant text-subtle text-[12px] tracking-wide">
+            <span className="font-inter text-subtle text-[12px] tracking-wide">
               {s.label}
             </span>
           </div>

@@ -27,10 +27,10 @@ const AboutStory = () => (
             <div className="absolute inset-0 bg-gradient-to-t from-deep/60 via-transparent to-transparent" />
             {/* Location tag */}
             <div className="absolute bottom-5 left-5 bg-deepest/90 border border-gold-25 px-4 py-2.5">
-              <p className="font-cinzel text-gold text-[10px] tracking-[0.25em] font-semibold">
+              <p className="font-inter text-gold text-[10px] tracking-[0.25em] font-semibold">
                 RISHIKESH, INDIA
               </p>
-              <p className="font-cormorant text-subtle text-[12px] italic mt-0.5">
+              <p className="font-inter text-subtle text-[12px] italic mt-0.5">
                 The Yoga Capital of the World
               </p>
             </div>
@@ -47,7 +47,7 @@ const AboutStory = () => (
             />
             <div className="absolute inset-0 bg-deepest/30" />
             <div className="absolute bottom-2 left-0 right-0 text-center">
-              <p className="font-cinzel text-gold text-[9px] tracking-[0.2em]">
+              <p className="font-inter text-gold text-[9px] tracking-[0.2em]">
                 MAA GANGA
               </p>
             </div>
@@ -62,7 +62,7 @@ const AboutStory = () => (
           <SectionLabel label="OUR STORY" />
 
           <h2
-            className="font-cinzel-deco text-primary leading-[1.2] mb-6"
+            className="font-playfair text-primary leading-[1.2] mb-6"
             style={{ fontSize: "clamp(1.5rem, 3vw, 2.4rem)" }}
           >
             A Sacred Space Born
@@ -74,7 +74,7 @@ const AboutStory = () => (
             {STORY_PARAS.map((p, i) => (
               <p
                 key={i}
-                className="font-cormorant text-muted text-[1.05rem] leading-[1.9] italic"
+                className="font-inter text-muted text-[1.05rem] leading-[1.9] italic"
               >
                 {p}
               </p>
@@ -83,12 +83,12 @@ const AboutStory = () => (
 
           {/* Maa Ganga quote */}
           <div className="mt-8 pl-5 border-l-2 border-gold-40">
-            <p className="font-cinzel-deco text-primary text-[15px] leading-[1.5] mb-2">
+            <p className="font-playfair text-primary text-[15px] leading-[1.5] mb-2">
               "From the Ganges to the globe -
               <br />
               sacred wisdom for every seeker."
             </p>
-            <p className="font-cormorant text-gold text-[12px] italic tracking-wide">
+            <p className="font-inter text-gold text-[12px] italic tracking-wide">
               - SYMC Wellness
             </p>
           </div>

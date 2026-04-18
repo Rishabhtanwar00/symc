@@ -177,7 +177,7 @@ const InfiniteSlider = ({
   // translateX(calc(idx * -(var(--sw) * 1px + gap * 1px) + dragDx * 1px))
   const tx = `calc(${idx} * calc(var(--sw, 0) * -1px - ${gap}px) + ${dragDx}px)`;
 
-  // ── Autoplay reset key — increments on every MANUAL navigation ──────────
+  // ── Autoplay reset key - increments on every MANUAL navigation ──────────
   // Including it in the autoplay useEffect dependency means the interval is
   // torn down and restarted from zero every time the user clicks prev/next
   // or a dot, so the next auto-advance is always a full interval away.
@@ -226,7 +226,7 @@ const InfiniteSlider = ({
   }, [doAnim]);
 
   // ── Autoplay ─────────────────────────────────────────────────────────────
-  // Depends on `resetKey` — so every manual navigation cancels the old
+  // Depends on `resetKey` - so every manual navigation cancels the old
   // interval and starts a fresh one, giving the user a full interval of
   // breathing room before the next auto-advance.
   useEffect(() => {
@@ -250,8 +250,8 @@ const InfiniteSlider = ({
     if (!dragging) return;
     setDragging(false);
     if (dragDx < -60)
-      go(1, true); // manual — reset timer
-    else if (dragDx > 60) go(-1, true); // manual — reset timer
+      go(1, true); // manual - reset timer
+    else if (dragDx > 60) go(-1, true); // manual - reset timer
     setDragDx(0);
     if (autoplay) setPlaying(true);
   };
@@ -333,7 +333,7 @@ const InfiniteSlider = ({
         )}
       </div>
 
-      {/* Outside arrows — in the mx gutter */}
+      {/* Outside arrows - in the mx gutter */}
       {showArrows && arrowStyle === "outside" && (
         <>
           <button
@@ -389,7 +389,7 @@ const InfiniteSlider = ({
           )}
 
           {/* <span
-            className="font-cinzel text-[10px] tracking-[0.2em] shrink-0"
+            className="font-inter text-[10px] tracking-[0.2em] shrink-0"
             style={{ color: "var(--color-gold-40)" }}
           >
             {String(dotIdx + 1).padStart(2, "0")}&thinsp;/&thinsp;

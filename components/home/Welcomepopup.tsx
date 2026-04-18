@@ -70,9 +70,6 @@ const WelcomePopup = () => {
 
   if (!open) return null;
 
-  const inputClass =
-    "w-full bg-transparent border-b border-gold-25 py-2.5 text-[14px] font-cormorant text-primary placeholder:text-subtle focus:outline-none focus:border-gold transition-colors duration-300";
-
   return (
     <div
       className={`fixed inset-0 z-[9999] flex items-center justify-center px-4 transition-all duration-300 ${
@@ -94,12 +91,12 @@ const WelcomePopup = () => {
         <div className="grid md:grid-cols-2">
           {/* LEFT */}
           <div className="px-4 py-4 md:px-8 md:py-6 flex flex-col">
-            <h2 className="mb-2 leading-[1.2] font-cinzel-deco text-primary text-center text-[clamp(1.3rem,2.5vw,1.75rem)]">
+            <h2 className="mb-2 leading-[1.2] font-playfair text-primary text-center text-[clamp(1.3rem,2.5vw,1.75rem)]">
               Begin Your Wellness
               <span className="text-gold"> Journey</span>
             </h2>
 
-            <p className="font-cormorant text-muted italic text-[15px] mb-4 text-center">
+            <p className="font-inter text-muted italic text-[12px] mb-6 text-center">
               Share your details and our wellness experts will connect with you
               shortly to guide you toward balance, clarity, and well-being.
             </p>
@@ -107,7 +104,7 @@ const WelcomePopup = () => {
             {sent ? (
               <div className="flex-1 flex flex-col items-center justify-center gap-4 text-center">
                 <span className="text-4xl">🙏</span>
-                <p className="font-cinzel text-gold text-[12px] tracking-[0.18em]">
+                <p className="font-inter text-gold text-[12px] tracking-[0.18em]">
                   NAMASTE - WE'LL BE IN TOUCH
                 </p>
               </div>
@@ -117,35 +114,37 @@ const WelcomePopup = () => {
                   required={true}
                   value={form.name}
                   onChange={set("name")}
-                  placeholder="Your Name *"
+                  placeholder="Your Name"
                 />
                 <Input
                   required={true}
                   value={form.email}
                   onChange={set("email")}
-                  placeholder="Email Address *"
+                  placeholder="Email Address"
                 />
                 <Input
                   required={true}
                   value={form.phone}
                   onChange={set("phone")}
-                  placeholder="Phone Number *"
+                  placeholder="Phone Number"
                 />
                 <Textarea
                   required={true}
+                  label="Your Message"
                   value={form.message}
                   onChange={set("message")}
                   placeholder="Tell us how we can make your life better…"
-                  className={`${inputClass} resize-none`}
+                  className={`resize-none`}
                 />
-
                 <Button
                   type="submit"
-                  label="REQUEST CONSULTATION"
-                  size="lg"
-                  icon={<SendIcon size={14} />}
-                  iconPosition="right"
                   variant="fill"
+                  label={sent ? "Sending..." : "REQUEST CONSULTATION"}
+                  icon={sent ? null : <SendIcon size={13} />}
+                  iconPosition="right"
+                  size="lg"
+                  disabled={sent}
+                  className="disabled:opacity-60 disabled:cursor-not-allowed"
                 />
 
                 <Button

@@ -3,7 +3,11 @@ import {
   HeartIcon,
   SparkIcon,
   StarIcon,
+  InstagramIcon,
+  FacebookIcon,
+  YoutubeIcon,
 } from "@/components/common/Icons";
+import { JSX } from "react";
 
 // ─── Hero Slides ──────────────────────────────────────────────────────────────
 export const HERO_SLIDES = [
@@ -111,7 +115,7 @@ export const PRODUCTS = [
 export const STATS = [
   { num: "20", suffix: "+", label: "Years of Experience", icon: StarIcon },
   { num: "20", suffix: "K+", label: "Lives Healed", icon: HeartIcon },
-  { num: "5", suffix: "+", label: "Services Offered", icon: SparkIcon },
+  // { num: "5", suffix: "+", label: "Services Offered", icon: SparkIcon },
   { num: "500", suffix: "+", label: "Sessions Monthly", icon: CircleFlowIcon },
 ];
 
@@ -150,4 +154,22 @@ export const NAV_LINKS = [
   { label: "Horoscope", href: "/horoscope" },
   { label: "About", href: "/about" },
   { label: "Contact", href: "/contact" },
+];
+
+export const SOCIALS = [
+  {
+    icon: InstagramIcon,
+    label: "Instagram",
+    href: process.env.NEXT_PUBLIC_INSTAGRAM ?? "#",
+  },
+  {
+    icon: FacebookIcon,
+    label: "Facebook",
+    href: process.env.NEXT_PUBLIC_FACEBOOK ?? "#",
+  },
+  {
+    icon: YoutubeIcon,
+    label: "YouTube",
+    href: process.env.NEXT_PUBLIC_YOUTUBE_CHANNEL ?? "#",
+  },
 ];

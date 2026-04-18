@@ -34,10 +34,10 @@ const AboutSYMC = () => {
                 />
                 {/* Name plate */}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/45 via-black/30 to-transparent px-6 py-6">
-                  <p className="font-cinzel text-gold text-[13px] font-bold tracking-[0.2em]">
+                  <p className="font-inter text-gold text-[13px] font-bold tracking-[0.2em]">
                     Shweta Vij
                   </p>
-                  <p className="font-cormorant text-white text-[13px] italic tracking-wide mt-1">
+                  <p className="font-inter text-white text-[13px] italic tracking-wide mt-1">
                     Healer · Mentor · Life Coach
                   </p>
                   <div className="mt-3 flex items-center gap-3">
@@ -53,12 +53,12 @@ const AboutSYMC = () => {
           {/* ── Right: Content ── */}
           <div>
             {/* Eyebrow */}
-            <p className="text-[10px] tracking-[0.4em] font-cinzel text-gold font-semibold mb-5">
+            <p className="text-[10px] tracking-[0.4em] font-inter text-gold font-semibold mb-5">
               ✦ ABOUT SYMC WELLNESS ✦
             </p>
 
             <h2
-              className="font-cinzel-deco text-primary leading-[1.2] mb-6"
+              className="font-playfair text-primary leading-[1.2] mb-6"
               style={{ fontSize: "clamp(1.5rem, 3vw, 2.4rem)" }}
             >
               Where Spirituality Meets{" "}
@@ -74,13 +74,13 @@ const AboutSYMC = () => {
               <div className="h-px flex-1 bg-gold-12" />
             </div>
 
-            <p className="mb-5 text-[1.05rem] leading-[1.9] font-cormorant text-muted italic">
+            <p className="mb-5 text-[1.05rem] leading-[1.9] font-inter text-muted">
               SYMC Wellness brings together Meditation, Astrology, Spiritual
               Products, and Vastu guidance to support your journey toward inner
               balance and higher consciousness.
             </p>
 
-            <p className="mb-8 text-[1rem] leading-[1.85] font-cormorant text-subtle">
+            <p className="mb-8 text-[1rem] leading-[1.85] font-inter text-subtle">
               Based in Rishikesh, we offer authentic spiritual tools and
               holistic services designed to elevate your energy and transform
               your life. Every session, every product, every reading is infused
@@ -96,7 +96,7 @@ const AboutSYMC = () => {
         </div>
 
         {/* ── Stats Row ── */}
-        <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-px border border-gold-10 bg-gold-10">
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-px border border-gold-10 bg-gold-10">
           {STATS.map((s) => (
             <div
               key={s.label}
@@ -110,13 +110,13 @@ const AboutSYMC = () => {
                 <s.icon size={28} />
               </span>
               <div
-                className="font-cinzel-deco text-gold leading-none"
+                className="font-playfair text-gold leading-none"
                 style={{ fontSize: "clamp(1.8rem, 3.5vw, 2.5rem)" }}
               >
                 {s.num}
                 <span className="text-gold-dark">{s.suffix}</span>
               </div>
-              <div className="text-[11px] tracking-widest font-cinzel text-subtle font-semibold uppercase">
+              <div className="text-[11px] tracking-widest font-inter text-subtle font-semibold uppercase">
                 {s.label}
               </div>
             </div>

@@ -23,11 +23,11 @@ const Services = () => (
       <div className="text-center mb-16">
         <SectionLabel label="WHAT WE OFFER" />
 
-        <h2 className="mb-2 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
+        <h2 className="mb-2 leading-[1.2] font-playfair text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
           Sacred
           <span className="text-gold"> Pathways</span>
         </h2>
-        <p className="max-w-xl mx-auto text-[1.05rem] font-cormorant text-subtle italic">
+        <p className="max-w-xl mx-auto text-[1.0rem] font-inter text-subtle">
           Doorways to self-discovery, aligned with ancient Yogic and Vedic
           traditions.
         </p>
@@ -61,16 +61,16 @@ const Services = () => (
               <div className="text-[26px] leading-none text-gold mb-3">
                 {s.icon}
               </div>
-              <h3 className="text-[12px] tracking-[0.06em] font-cinzel-deco text-muted mb-2">
+              <h3 className="text-[0.95rem] tracking-[0.06em] font-inter text-gold mb-2">
                 {s.title}
               </h3>
-              <p className=" text-[0.95rem] leading-[1.7] font-cormorant text-subtle flex-1">
+              <p className=" text-[0.90rem] leading-[1.7] font-inter text-subtle flex-1">
                 {s.short}
               </p>
-              <div className="mt-4 text-[9px] tracking-[0.25em] font-cormorant font-semibold italic text-gold opacity-80">
+              <div className="mt-4 text-[9px] tracking-[0.25em] font-inter font-semibold italic text-muted opacity-80">
                 {s.tag}
               </div>
-              <div className="mt-3 flex items-center gap-2 text-[10px] tracking-[0.15em] font-cinzel text-gold">
+              <div className="mt-3 flex items-center gap-2 text-[10px] tracking-[0.15em] font-inter text-gold">
                 LEARN MORE{" "}
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →

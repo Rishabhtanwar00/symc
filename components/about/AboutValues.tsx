@@ -48,7 +48,7 @@ const AboutValues = () => (
       <div className="text-center mb-16">
         <SectionLabel label="WHAT WE STAND FOR" />
         <h2
-          className="font-cinzel-deco text-primary leading-[1.2]"
+          className="font-playfair text-primary leading-[1.2]"
           style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)" }}
         >
           Our Core{" "}
@@ -56,7 +56,7 @@ const AboutValues = () => (
             Values
           </span>
         </h2>
-        <p className="mt-4 max-w-xl mx-auto font-cormorant text-subtle italic text-[1.05rem] leading-[1.8]">
+        <p className="mt-4 max-w-xl mx-auto font-inter text-subtle italic text-[1.05rem] leading-[1.8]">
           These are not marketing words - they are the living principles that
           guide every product we curate, every session we hold, and every life
           we touch.
@@ -70,7 +70,7 @@ const AboutValues = () => (
             className="group relative bg-deepest p-8 flex flex-col gap-4 overflow-hidden transition-all duration-400 hover:bg-gold-04"
           >
             {/* Watermark number */}
-            <span className="absolute top-3 right-4 font-cinzel-deco text-gold opacity-[0.07] text-[5rem] leading-none select-none pointer-events-none">
+            <span className="absolute top-3 right-4 font-playfair text-gold opacity-[0.07] text-[5rem] leading-none select-none pointer-events-none">
               {v.number}
             </span>
 
@@ -81,7 +81,7 @@ const AboutValues = () => (
             <span className="text-2xl text-gold leading-none">{v.icon}</span>
 
             {/* Title */}
-            <h3 className="font-cinzel text-primary text-[14px] tracking-[0.08em]">
+            <h3 className="font-inter text-primary text-[14px] tracking-[0.08em]">
               {v.title}
             </h3>
 
@@ -89,7 +89,7 @@ const AboutValues = () => (
             <div className="h-px w-8 bg-gold-40" />
 
             {/* Description */}
-            <p className="font-cormorant text-subtle text-[14px] leading-[1.8] italic flex-1">
+            <p className="font-inter text-subtle text-[14px] leading-[1.8] italic flex-1">
               {v.desc}
             </p>
           </div>

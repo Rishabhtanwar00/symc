@@ -32,7 +32,7 @@ const AboutMaster = () => {
         <div className="text-center mb-16">
           <SectionLabel label="ABOUT THE MASTER" />
           <h2
-            className="font-cinzel-deco text-primary leading-[1.2]"
+            className="font-playfair text-primary leading-[1.2]"
             style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)" }}
           >
             Meet{" "}
@@ -43,17 +43,17 @@ const AboutMaster = () => {
         </div>
 
         {/* ── Two column grid ── */}
-        <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-16 xl:gap-24 items-start">
           {/* ── Right col on desktop, first on mobile: Content ── */}
           <div className="order-2 lg:order-1">
             {/* Bio */}
-            <p className="font-cormorant text-muted italic text-[1.1rem] leading-[1.9] mb-5">
+            <p className="font-inter text-muted text-[1.1rem] leading-[1.9] mb-5">
               Shweta Shivanand is a blessed Shree Vidya practitioner, intuitive
               healer and astrologer with over 20 years of experience in guiding
               souls towards clarity and spiritual awakening.
             </p>
 
-            <p className="font-cormorant text-subtle text-[1.05rem] leading-[1.85] mb-5">
+            <p className="font-inter text-subtle text-[1.05rem] leading-[1.85] mb-5">
               Rooted in ancient spiritual wisdom, her work helps individuals
               release karmic patterns, emotional blocks and energetic
               imbalances. With her divine intuitive abilities, she empowers
@@ -61,9 +61,9 @@ const AboutMaster = () => {
               consciousness.
             </p>
 
-            <p className="font-cormorant text-subtle text-[1.05rem] leading-[1.85] mb-8">
+            <p className="font-inter text-subtle text-[1.05rem] leading-[1.85] mb-8">
               Her teachings are simple yet deeply transformative. If you're a
-              seeker of truth, self-realization, and spiritual awakening — this
+              seeker of truth, self-realization, and spiritual awakening - this
               is your gateway to higher consciousness.
             </p>
 
@@ -71,7 +71,7 @@ const AboutMaster = () => {
             <div className="flex items-center gap-3 mb-8 flex-wrap">
               {["Discover", "Awaken", "Transform"].map((word, i) => (
                 <div key={word} className="flex items-center gap-3">
-                  <span className="font-cinzel-deco text-gold text-[15px] tracking-[0.08em]">
+                  <span className="font-playfair text-gold text-[15px] tracking-[0.08em]">
                     {word}
                   </span>
                   {i < 2 && (
@@ -83,8 +83,8 @@ const AboutMaster = () => {
 
             {/* Gold rule + welcome line */}
             <div className="pl-4 border-l-2 border-gold mb-8">
-              <p className="font-cormorant text-primary italic text-[1rem] leading-[1.75]">
-                Welcome to Shree Yogmaya Meditation Centre — where{" "}
+              <p className="font-inter text-primary text-[1rem] leading-[1.75]">
+                Welcome to Shree Yogmaya Meditation Centre - where{" "}
                 <span className="text-gold">Spiritual Science</span> meets{" "}
                 <span className="text-gold">Inner Experience.</span>
               </p>
@@ -100,7 +100,7 @@ const AboutMaster = () => {
                   <span className="text-gold text-sm leading-none">
                     {p.icon}
                   </span>
-                  <span className="font-cormorant text-subtle text-[13px] italic">
+                  <span className="font-inter text-subtle text-[13px] italic">
                     {p.text}
                   </span>
                 </div>
@@ -124,7 +124,7 @@ const AboutMaster = () => {
               <div className="relative w-[300px] h-[420px] md:w-[360px] md:h-[500px] overflow-hidden">
                 <Image
                   src={masterImage}
-                  alt="Shweta Vij — Shree Vidya Practitioner & Intuitive Healer"
+                  alt="Shweta Vij - Shree Vidya Practitioner & Intuitive Healer"
                   fill
                   className="object-cover object-top"
                   sizes="(max-width: 768px) 300px, 360px"
@@ -132,33 +132,33 @@ const AboutMaster = () => {
                 {/* Gradient overlay bottom */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-black/30 to-transparent" />
 
-                {/* Floating experience badge — top left */}
+                {/* Floating experience badge - top left */}
                 <div className="absolute top-4 left-4 bg-deepest/90 border border-gold-40 px-4 py-3 backdrop-blur-sm">
-                  <p className="font-cinzel-deco text-gold text-2xl leading-none font-bold">
+                  <p className="font-playfair text-gold text-2xl leading-none font-bold">
                     20+
                   </p>
-                  <p className="font-cinzel text-subtle text-[9px] tracking-[0.2em] mt-1">
+                  <p className="font-inter text-subtle text-[9px] tracking-[0.2em] mt-1">
                     YEARS
                   </p>
                 </div>
 
                 {/* Name plate bottom */}
                 <div className="absolute bottom-0 left-0 right-0 px-5 py-5">
-                  <p className="font-cinzel text-gold text-[13px] font-bold tracking-[0.18em]">
+                  <p className="font-inter text-gold text-[13px] font-bold tracking-[0.18em]">
                     SHWETA VIJ
                   </p>
-                  <p className="font-cormorant text-white text-[13px] italic mt-0.5">
+                  <p className="font-inter text-white text-[13px] mt-0.5">
                     Shree Vidya Practitioner · Healer · Astrologer
                   </p>
                 </div>
               </div>
 
-              {/* Floating stat card — bottom right, extends outside image */}
+              {/* Floating stat card - bottom right, extends outside image */}
               <div className="absolute -bottom-6 -right-6 bg-deepest border border-gold-25 px-5 py-4 shadow-2xl">
-                <p className="font-cinzel-deco text-gold text-2xl leading-none">
+                <p className="font-playfair text-gold text-2xl leading-none">
                   20K+
                 </p>
-                <p className="font-cormorant text-subtle text-[12px] italic mt-1">
+                <p className="font-inter text-subtle text-[12px] mt-1">
                   Lives Healed
                 </p>
               </div>

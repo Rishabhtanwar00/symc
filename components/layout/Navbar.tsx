@@ -30,7 +30,7 @@ const Navbar = () => {
         <Link href="/" className="flex items-center gap-3 shrink-0">
           <span className="text-2xl text-gold-dark leading-none">☽</span>
           <div>
-            <div className="font-bold text-sm font-cinzel text-gold-dark tracking-[0.2em] leading-none">
+            <div className="font-bold text-sm font-inter text-gold-dark tracking-[0.2em] leading-none">
               SYMC
             </div>
             <div className="text-[8px] text-subtle tracking-[0.12em] mt-0.5">
@@ -53,7 +53,7 @@ const Navbar = () => {
               <Link
                 key={link.label}
                 href={link.href}
-                className="text-[11px] font-cormorant font-semibold tracking-[0.12em] hover:text-gold transition-colors duration-100"
+                className="text-[11px] font-inter font-semibold tracking-[0.12em] hover:text-gold transition-colors duration-100"
               >
                 {link.label.toUpperCase()}
               </Link>
@@ -107,7 +107,7 @@ const Navbar = () => {
               <Link
                 key={link.label}
                 href={link.href}
-                className="nav-link text-[12px] font-cormorant tracking-[0.12em] transition-colors duration-300"
+                className="nav-link text-[12px] font-inter tracking-[0.12em] transition-colors duration-300"
               >
                 {link.label.toUpperCase()}
               </Link>

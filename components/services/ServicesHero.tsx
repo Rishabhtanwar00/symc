@@ -18,7 +18,7 @@ const ServicesHero = () => (
       <SectionLabel label="SYMC WELLNESS · RISHIKESH" />
 
       <h1
-        className="font-cinzel-deco text-primary leading-[1.15] mb-6"
+        className="font-playfair text-primary leading-[1.15] mb-6"
         style={{ fontSize: "clamp(2.2rem, 5.5vw, 4rem)" }}
       >
         Our Sacred{" "}
@@ -27,7 +27,7 @@ const ServicesHero = () => (
         </span>
       </h1>
 
-      <p className="font-cormorant text-muted italic text-[1.15rem] leading-[1.85] max-w-2xl mx-auto mb-10">
+      <p className="font-inter text-muted italic text-[1.15rem] leading-[1.85] max-w-2xl mx-auto mb-10">
         Each service is a doorway - into clarity, into healing, into the most
         authentic version of yourself. Rooted in 20+ years of practice, guided
         by ancient wisdom, shaped for the modern soul.
@@ -37,7 +37,7 @@ const ServicesHero = () => (
       <div className="flex flex-wrap justify-center gap-3">
         {SERVICES_FULL.map((service, i) => (
           <Link key={service.id} href={`/services#${service.id}`}>
-            <Button label={service.title} size="md" />
+            <Button label={service.title} size="md" className="text-[12px]" />
           </Link>
         ))}
       </div>

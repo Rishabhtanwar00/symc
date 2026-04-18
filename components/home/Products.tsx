@@ -19,11 +19,11 @@ const Products = () => (
       <div className="text-center mb-16">
         <SectionLabel label="SPIRITUAL STORE" />
 
-        <h2 className="mb-2 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
+        <h2 className="mb-2 leading-[1.2] font-playfair text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
           Sacred
           <span className="text-gold"> Products</span>
         </h2>
-        <p className="max-w-xl mx-auto text-[1.05rem] font-cormorant text-subtle italic">
+        <p className="max-w-xl mx-auto text-[1.0rem] font-inter text-subtle">
           Carefully sourced, energetically cleansed and blessed tools to support
           your practice.
         </p>
@@ -56,37 +56,32 @@ const Products = () => (
               />
               <div className="absolute inset-0 bg-linear-to-t from-dark/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               {/* Category badge */}
-              <span className="absolute top-3 left-3 bg-black/80 text-gold text-[9px] font-cinzel font-semibold tracking-[0.2em] px-2 py-1 border border-gold-25">
+              <span className="absolute top-3 left-3 bg-black/80 text-gold text-[9px] font-inter font-semibold tracking-[0.2em] px-2 py-1 border border-gold-25">
                 {p.category.toUpperCase()}
               </span>
             </div>
 
             {/* Info */}
             <div className="p-5 flex flex-col gap-2 flex-1">
-              <h3 className="font-cinzel text-muted font-semibold text-[14px] tracking-[0.05em]">
+              <h3 className="font-inter text-gold font-semibold text-[0.95rem] tracking-[0.05em]">
                 {p.name}
               </h3>
-              <p className="font-cormorant text-subtle text-[13px] italic leading-relaxed flex-1">
+              <p className="font-inter text-subtle text-[12px] leading-relaxed flex-1">
                 {p.desc}
               </p>
               <div className="flex items-center justify-between mt-3">
-                <span className="font-cinzel-deco text-gold text-lg">
+                <span className="font-inter text-gold text-lg">
                   ₹ {p.price.toLocaleString("en-IN")}
                 </span>
                 {/* <Link
                   href="/products"
-                  className="text-[10px] font-cinzel text-gold-dark tracking-[0.15em] border-b-2 border-gold-60 pb-0.5 nav-link transition-colors duration-300"
+                  className="text-[10px] font-inter text-gold-dark tracking-[0.15em] border-b-2 border-gold-60 pb-0.5 nav-link transition-colors duration-300"
                 >
                   VIEW →
                 </Link> */}
 
                 <Link href={"/products"}>
-                  <Button
-                    label="VIEW →"
-                    size="sm"
-                    variant="fill"
-                    className="px-0 py-0"
-                  />
+                  <Button label="VIEW →" size="sm" className="px-0 py-0" />
                 </Link>
               </div>
             </div>

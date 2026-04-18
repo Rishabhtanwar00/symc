@@ -45,7 +45,7 @@ const AboutExpertise = () => (
       <div className="text-center mb-16">
         <SectionLabel label="DISCIPLINES & MASTERY" />
         <h2
-          className="font-cinzel-deco text-primary leading-[1.2]"
+          className="font-playfair text-primary leading-[1.2]"
           style={{ fontSize: "clamp(1.6rem, 3.5vw, 2.6rem)" }}
         >
           25 Years of{" "}
@@ -53,7 +53,7 @@ const AboutExpertise = () => (
             Sacred Practice
           </span>
         </h2>
-        <p className="mt-4 max-w-xl mx-auto font-cormorant text-subtle italic text-[1.05rem] leading-[1.8]">
+        <p className="mt-4 max-w-xl mx-auto font-inter text-subtle italic text-[1.05rem] leading-[1.8]">
           Each discipline is not just a service - it is a lifelong devotion.
           Here's what we bring to every session and every interaction.
         </p>
@@ -83,15 +83,15 @@ const AboutExpertise = () => (
                       {e.icon}
                     </span>
                     <div className={isLeft ? "md:text-right" : ""}>
-                      <h3 className="font-cinzel text-primary text-[13px] tracking-[0.08em]">
+                      <h3 className="font-inter text-primary text-[13px] tracking-[0.08em]">
                         {e.title}
                       </h3>
-                      <p className="font-cormorant text-gold text-[11px] italic mt-0.5">
+                      <p className="font-inter text-gold text-[11px] italic mt-0.5">
                         {e.years} of Experience
                       </p>
                     </div>
                   </div>
-                  <p className="font-cormorant text-subtle text-[14px] leading-[1.8] italic">
+                  <p className="font-inter text-subtle text-[14px] leading-[1.8] italic">
                     {e.desc}
                   </p>
                 </div>
@@ -108,10 +108,10 @@ const AboutExpertise = () => (
                   className={`hidden md:flex items-center ${isLeft ? "justify-start pl-10" : "justify-end pr-10"}`}
                 >
                   <div className="px-4 py-2 border border-gold-25 bg-deepest/40">
-                    <p className="font-cinzel-deco text-gold text-[22px] leading-none">
+                    <p className="font-playfair text-gold text-[22px] leading-none">
                       {e.years.split(" ")[0]}
                     </p>
-                    <p className="font-cormorant text-subtle text-[11px] tracking-wide">
+                    <p className="font-inter text-subtle text-[11px] tracking-wide">
                       Years
                     </p>
                   </div>
