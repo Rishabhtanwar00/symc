@@ -1,10 +1,5 @@
 import type { Metadata } from "next";
 import {
-  Cinzel,
-  Cinzel_Decorative,
-  Cormorant_Garamond,
-  Roboto,
-  Lora,
   Playfair_Display,
   Inter,
 } from "next/font/google";
@@ -13,39 +8,10 @@ import { ThemeProvider } from "@/lib/ThemeContext";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 
-const cinzel = Cinzel({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-cinzel-var",
-  display: "swap",
-});
-
-const cinzelDecorative = Cinzel_Decorative({
-  subsets: ["latin"],
-  weight: ["400", "700"],
-  variable: "--font-cinzel-deco-var",
-  display: "swap",
-});
-
-const cormorantGaramond = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant-var",
-  display: "swap",
-});
-
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "600", "700"],
   variable: "--font-inter-var",
-  display: "swap",
-});
-
-const lora = Lora({
-  subsets: ["latin"],
-  weight: ["400", "600", "700"],
-  variable: "--font-lora-var",
   display: "swap",
 });
 
@@ -80,7 +46,7 @@ export default function RootLayout({
     <html
       lang="en"
       data-theme="dark"
-      className={`${cinzel.variable} ${cinzelDecorative.variable} ${cormorantGaramond.variable} ${inter.variable} ${lora.variable} ${playfairDisplay.variable}`}
+      className={`${inter.variable} ${playfairDisplay.variable}`}
     >
       <body>
         <ThemeProvider>

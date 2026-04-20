@@ -128,10 +128,6 @@
   --color-nav-mobile: var(--nav-mobile);
 
   /* Fonts */
-  --font-cinzel: var(--font-cinzel-var), serif;
-  --font-cinzel-deco: var(--font-cinzel-deco-var), serif;
-  --font-cormorant: var(--font-cormorant-var), serif;
-  --font-lora: var(--font-lora-var), serif;
   --font-playfair: var(--font-playfair-var), serif;
   --font-inter: var(--font-inter-var), serif;
 }
@@ -154,7 +150,7 @@
   }
 
   body {
-    font-family: var(--font-cormorant);
+    font-family: var(--font-inter), sans-serif;
     @apply bg-deep text-primary antialiased;
     transition:
       background-color 0.4s ease,
