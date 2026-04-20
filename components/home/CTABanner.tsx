@@ -33,7 +33,7 @@ const CTABanner = () => {
   };
 
   const inputClass =
-    "w-full bg-transparent border-b border-gold-25 py-3 text-[14px] font-cormorant text-primary placeholder:text-subtle focus:outline-none focus:border-gold transition-colors duration-300";
+    "w-full bg-transparent border-b border-gold-25 py-3 text-[14px] font-inter text-primary placeholder:text-subtle focus:outline-none focus:border-gold transition-colors duration-300";
 
   return (
     <section
@@ -48,11 +48,11 @@ const CTABanner = () => {
       <div className="relative z-10 max-w-2xl mx-auto">
         <SectionLabel label="GET IN TOUCH" />
 
-        <h2 className="mb-2 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
+        <h2 className="mb-2 leading-[1.2] font-playfair text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
           Begin Your
           <span className="text-gold"> Transformation</span>
         </h2>
-        <p className="mb-12 text-[1.05rem] leading-[1.8] font-cormorant text-subtle italic">
+        <p className="mb-12 text-[1.0rem] leading-[1.8] font-inter text-subtle">
           Share what you seek. Shweta will personally reach out to guide you
           toward the right path.
         </p>
@@ -60,10 +60,10 @@ const CTABanner = () => {
         {sent ? (
           <div className="py-12 flex flex-col items-center gap-4">
             <span className="text-4xl">🙏</span>
-            <p className="font-cinzel text-gold tracking-[0.2em] text-sm">
+            <p className="font-inter text-gold tracking-[0.2em] text-sm">
               NAMASTE - WE'LL BE IN TOUCH SOON
             </p>
-            <p className="font-cormorant text-subtle italic">
+            <p className="font-inter text-subtle italic">
               Your enquiry has been received with gratitude.
             </p>
           </div>
@@ -77,13 +77,13 @@ const CTABanner = () => {
                 required={true}
                 value={form.name}
                 onChange={set("name")}
-                placeholder="Your Name *"
+                placeholder="Your Name"
               />
               <Input
                 required={true}
                 value={form.city}
                 onChange={set("city")}
-                placeholder="City / State *"
+                placeholder="City / State"
               />
             </div>
 
@@ -92,18 +92,19 @@ const CTABanner = () => {
                 required={true}
                 value={form.phone}
                 onChange={set("phone")}
-                placeholder="Phone Number *"
+                placeholder="Phone Number"
               />
               <Input
                 required={true}
                 value={form.email}
                 onChange={set("email")}
                 type="email"
-                placeholder="Email Address *"
+                placeholder="Email Address"
               />
             </div>
             <Textarea
               required={true}
+              label="Your Message"
               value={form.message}
               onChange={set("message")}
               placeholder="What change do you want in your life? (Tell us more…)"

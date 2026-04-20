@@ -45,7 +45,7 @@ const AboutProducts = () => (
           <SectionLabel label="SPIRITUAL STORE" />
 
           <h2
-            className="font-cinzel-deco text-primary leading-[1.2] mb-5"
+            className="font-playfair text-primary leading-[1.2] mb-5"
             style={{ fontSize: "clamp(1.5rem, 3vw, 2.4rem)" }}
           >
             Authentic Products
@@ -53,14 +53,14 @@ const AboutProducts = () => (
             <span className="text-gold">From Sacred Rishikesh</span>
           </h2>
 
-          <p className="font-cormorant text-muted italic text-[1.05rem] leading-[1.9] mb-5">
+          <p className="font-inter text-muted italic text-[1.05rem] leading-[1.9] mb-5">
             Every item in the SYMC Wellness store is carefully sourced from
             trusted artisans and sacred suppliers in Rishikesh and beyond. Each
             product is energetically cleansed and blessed before it reaches you
             - ensuring it carries genuine spiritual intent.
           </p>
 
-          <p className="font-cormorant text-subtle text-[1.05rem] leading-[1.9] mb-8">
+          <p className="font-inter text-subtle text-[1.05rem] leading-[1.9] mb-8">
             Our range includes consecrated rudraksha malas, healing crystals,
             Shree Yantra, Narmadeshwar Shivling, hawan cups and kunds, pure
             hawan samagri, yoga accessories, and holistic wellness supplements -
@@ -71,10 +71,10 @@ const AboutProducts = () => (
           <div className="flex items-center gap-4 p-5 border border-gold-20 bg-deepest/50 mb-8">
             <span className="text-3xl leading-none">🌍</span>
             <div>
-              <p className="font-cinzel text-gold text-[12px] tracking-[0.15em] font-semibold">
+              <p className="font-inter text-gold text-[12px] tracking-[0.15em] font-semibold">
                 WORLDWIDE SHIPPING
               </p>
-              <p className="font-cormorant text-subtle text-[13px] italic mt-0.5">
+              <p className="font-inter text-subtle text-[13px] italic mt-0.5">
                 We proudly ship to seekers across the globe - sharing the sacred
                 essence of Indian spirituality with the world.
               </p>
@@ -103,10 +103,10 @@ const AboutProducts = () => (
               />
               <div className="absolute inset-0 bg-gradient-to-t from-deepest/80 via-transparent to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 px-4 py-3">
-                <p className="font-cinzel text-primary text-[11px] tracking-[0.1em]">
+                <p className="font-inter text-primary text-[11px] tracking-[0.1em]">
                   {p.name}
                 </p>
-                <p className="font-cormorant text-gold text-[11px] italic">
+                <p className="font-inter text-gold text-[11px] italic">
                   {p.desc}
                 </p>
               </div>

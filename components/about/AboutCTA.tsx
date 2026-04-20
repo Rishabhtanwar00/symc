@@ -23,7 +23,7 @@ const AboutCTA = () => (
       <SectionLabel label="BEGIN YOUR JOURNEY" />
 
       <h2
-        className="font-cinzel-deco text-primary leading-[1.15] mb-5"
+        className="font-playfair text-primary leading-[1.15] mb-5"
         style={{ fontSize: "clamp(1.8rem, 4.5vw, 3.2rem)" }}
       >
         Your Path to{" "}
@@ -33,7 +33,7 @@ const AboutCTA = () => (
         Starts Here
       </h2>
 
-      <p className="font-cormorant text-muted italic text-[1.1rem] leading-[1.9] mb-12 max-w-2xl mx-auto">
+      <p className="font-inter text-muted italic text-[1.1rem] leading-[1.9] mb-12 max-w-2xl mx-auto">
         Whether you are seeking clarity in your career, harmony in your home,
         healing for your spirit, or simply a sacred product to support your
         practice - SYMC Wellness is here to walk this path with you.
@@ -60,7 +60,7 @@ const AboutCTA = () => (
         ].map((item) => (
           <div key={item.label} className="flex items-center gap-2">
             <span className="text-lg leading-none">{item.icon}</span>
-            <span className="font-cormorant text-subtle text-[13px] italic tracking-wide">
+            <span className="font-inter text-subtle text-[13px] italic tracking-wide">
               {item.label}
             </span>
           </div>

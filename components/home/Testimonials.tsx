@@ -13,11 +13,11 @@ const Testimonials = () => (
       <div className="text-center mb-16">
         <SectionLabel label="VOICES FROM THE JOURNEY" />
 
-        <h2 className="mb-2 leading-[1.2] font-cinzel-deco text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
+        <h2 className="mb-2 leading-[1.2] font-playfair text-primary text-[clamp(1.6rem,3.5vw,2.8rem)]">
           Real
           <span className="text-gold"> Transformations</span>
         </h2>
-        <p className="max-w-xl mx-auto text-[1.05rem] font-cormorant text-subtle italic">
+        <p className="max-w-xl mx-auto text-[1.0rem] font-inter text-subtle">
           Watch how SYMC Wellness has touched lives - in people's own words.
         </p>
       </div>

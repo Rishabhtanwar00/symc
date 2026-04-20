@@ -31,7 +31,7 @@ const ServicesList = () => (
         >
           {/* Number watermark - large decorative */}
           <div
-            className="absolute font-cinzel-deco text-gold pointer-events-none select-none leading-none"
+            className="absolute font-playfair text-gold pointer-events-none select-none leading-none"
             style={{
               fontSize: "clamp(8rem, 18vw, 16rem)",
               opacity: 0.1,
@@ -71,7 +71,7 @@ const ServicesList = () => (
 
                   {/* Service number badge */}
                   <div className="absolute -top-4 -left-4 w-12 h-12 bg-deepest border border-gold-05 flex items-center justify-center">
-                    <span className="font-cinzel text-gold text-[11px] font-bold tracking-widest">
+                    <span className="font-inter text-gold text-[11px] font-bold tracking-widest">
                       {service.number}
                     </span>
                   </div>
@@ -85,21 +85,21 @@ const ServicesList = () => (
                   <span className="text-2xl text-gold leading-none">
                     {service.icon}
                   </span>
-                  <span className="text-[9px] font-cinzel text-gold-60 tracking-[0.3em] font-semibold">
+                  <span className="text-[9px] font-inter text-gold-60 tracking-[0.3em] font-semibold">
                     {service.tag}
                   </span>
                 </div>
 
                 {/* Title */}
                 <h2
-                  className="font-cinzel-deco text-primary leading-[1.2] mb-3"
+                  className="font-playfair text-primary leading-[1.2] mb-3"
                   style={{ fontSize: "clamp(1.4rem, 2.8vw, 2.1rem)" }}
                 >
                   {service.title}
                 </h2>
 
                 {/* Tagline */}
-                <p className="font-cinzel text-gold text-[12px] tracking-[0.1em] mb-5 italic">
+                <p className="font-inter text-gold text-[12px] tracking-[0.1em] mb-5 italic">
                   {service.tagline}
                 </p>
 
@@ -111,7 +111,7 @@ const ServicesList = () => (
                 </div>
 
                 {/* Description */}
-                <p className="font-cormorant text-muted text-[1.05rem] leading-[1.9] italic mb-7">
+                <p className="font-inter text-muted text-[1.05rem] leading-[1.9] italic mb-7">
                   {service.desc}
                 </p>
 
@@ -122,7 +122,7 @@ const ServicesList = () => (
                       <span className="text-gold mt-1 shrink-0">
                         <CheckIcon />
                       </span>
-                      <span className="font-cormorant text-subtle text-[14px] leading-relaxed">
+                      <span className="font-inter text-subtle text-[14px] leading-relaxed">
                         {b}
                       </span>
                     </li>
@@ -158,7 +158,7 @@ const ServicesList = () => (
           style={{ backgroundColor: c }}
         />
       ))}
-      <span className="mx-3 font-cinzel text-gold text-[9px] tracking-[0.3em] opacity-60">
+      <span className="mx-3 font-inter text-gold text-[9px] tracking-[0.3em] opacity-60">
         SEVEN CHAKRAS
       </span>
       {[...CHAKRA_COLORS].reverse().map((c, i) => (

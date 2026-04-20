@@ -5,6 +5,7 @@ interface ButtonProps {
   variant?: ButtonVariants;
   size?: ButtonSizes;
   type?: ButtonTypes;
+  disabled?: boolean;
   className?: string;
   onClick?: () => void;
 }
@@ -42,13 +43,15 @@ const Button = ({
   size = "md",
   type = "button",
   className,
+  disabled,
   onClick,
 }: ButtonProps) => {
   return (
     <button
       onClick={onClick}
-      className={`inline-flex items-center justify-center gap-2 font-cinzel font-semibold tracking-[0.18em] cursor-pointer transition-all duration-300 ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
+      className={`inline-flex items-center justify-center gap-2 font-inter font-semibold tracking-[0.18em] cursor-pointer transition-all duration-300 ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}
       type={type}
+      disabled={disabled}
     >
       {icon && iconPosition === "left" && <span>{icon}</span>}
       {label && <span className="mt-0.5">{label}</span>}

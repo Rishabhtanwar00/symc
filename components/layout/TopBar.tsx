@@ -20,12 +20,12 @@ const TopBar = () => {
         {/* phone */}
         <Link
           href={`tel:${phone}`}
-          className="flex items-center gap-2 text-[12px] font-cormorant text-light tracking-wide hover:text-gold transition-colors duration-300"
+          className="flex items-center gap-2 text-[12px] font-inter text-light tracking-wide hover:text-gold transition-colors duration-300"
         >
           <PhoneIcon />
           <span>
             Talk to the experts:{" "}
-            <strong className="text-gold font-semibold font-cinzel">
+            <strong className="text-gold font-semibold font-inter tracking-[0.05em]">
               {phone}
             </strong>
           </span>
@@ -35,7 +35,7 @@ const TopBar = () => {
         <div className="flex items-center gap-5">
           <Link
             href={`mailto:${email}`}
-            className="flex items-center gap-1.5 text-[14px] font-cormorant text-light tracking-wide hover:text-gold transition-colors duration-300 font-semibold"
+            className="flex items-center gap-1.5 text-[12px] font-inter text-light tracking-wide hover:text-gold transition-colors duration-300 font-semibold"
           >
             <MailIcon />
             <span className="text-gold">{email}</span>

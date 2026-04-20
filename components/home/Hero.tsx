@@ -73,7 +73,7 @@ const Hero = () => {
             >
               <SectionLabel label="SYMC WELLNESS · RISHIKESH" />
 
-              <blockquote className="font-cinzel-deco text-white text-[clamp(1.6rem,4.5vw,3.2rem)] leading-[1.15] mb-8 transition-all duration-500">
+              <blockquote className="font-playfair text-white text-[clamp(1.6rem,4.5vw,3.2rem)] leading-[1.15] mb-8 transition-all duration-500">
                 <span className="bg-gradient-gold bg-clip-text text-gold">
                   {HERO_SLIDES[active].quote.split(" ").slice(0, 4).join(" ")}
                 </span>{" "}

@@ -132,6 +132,8 @@
   --font-cinzel-deco: var(--font-cinzel-deco-var), serif;
   --font-cormorant: var(--font-cormorant-var), serif;
   --font-lora: var(--font-lora-var), serif;
+  --font-playfair: var(--font-playfair-var), serif;
+  --font-inter: var(--font-inter-var), serif;
 }
 
 /* ─────────────────────────────────────────────────────────────
